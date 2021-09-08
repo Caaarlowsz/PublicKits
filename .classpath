@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Desktop/plugins/spigot.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Desktop/plugins/BarAPI.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Downloads/Vault.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Desktop/plugins/The5zigMod.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Desktop/plugins/TitlesAPI-1.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Desktop/plugins/API.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Downloads/NameTagAPI.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Desktop/plugins/craftbukkit-1.7.2-R0.4-20140216.012104-3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Desktop/plugins/ProtocolLib.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Desktop/plugins/HolographicDisplaysPatch.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Desktop/plugins/HologramAPI_v1.3.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Downloads/HolographicDisplays.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Desktop/bangues/Servers/Server configurado/Server/plugins/EffectLib-3.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Downloads/citizensapi-2.0.16-SNAPSHOT.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
