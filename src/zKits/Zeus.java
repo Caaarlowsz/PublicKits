@@ -22,7 +22,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import me.confuser.barapi.BarAPI;
 import zEvents.Tab;
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Zeus implements CommandExecutor, Listener {
 	public static ArrayList<Player> cooldownm;
@@ -45,17 +45,17 @@ public class Zeus implements CommandExecutor, Listener {
 			Arrays.used.add(p.getName());
 			Arrays.teste.add(p.getName());
 			p.getInventory().clear();
-			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit §6 >> " + ChatColor.GRAY + " Rain");
-			BarAPI.setMessage(p, "§7§lSeu Kit §6§l- §f§lRain", 10);
-			Tab.sendTitle(p, "§cRain");
+			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit ï¿½6 >> " + ChatColor.GRAY + " Rain");
+			BarAPI.setMessage(p, "ï¿½7ï¿½lSeu Kit ï¿½6ï¿½l- ï¿½fï¿½lRain", 10);
+			Tab.sendTitle(p, "ï¿½cRain");
 			final ItemStack bow = new ItemStack(Material.STONE_SWORD);
 			final ItemMeta bowmeta = bow.getItemMeta();
-			bowmeta.setDisplayName("§9Espada de Pedra");
+			bowmeta.setDisplayName("ï¿½9Espada de Pedra");
 			bow.setItemMeta(bowmeta);
 			p.getInventory().setItem(0, bow);
 			final ItemStack nova = new ItemStack(Material.ARROW);
 			final ItemMeta novameta = nova.getItemMeta();
-			novameta.setDisplayName("§a Flecha Divina");
+			novameta.setDisplayName("ï¿½a Flecha Divina");
 			nova.setItemMeta(novameta);
 			p.getInventory().setItem(1, nova);
 			KitsManager.darSopas(p);
@@ -68,30 +68,30 @@ public class Zeus implements CommandExecutor, Listener {
 		final Player p = e.getPlayer();
 		if (p.getItemInHand().getType() == Material.ARROW) {
 			if (Zeus.cooldownm.contains(p)) {
-				p.sendMessage("§eKit em cooldown acabar!");
+				p.sendMessage("ï¿½eKit em cooldown acabar!");
 				return;
 			}
 			final Location loc = p.getLocation();
 			p.getWorld().playSound(loc, Sound.ARROW_HIT, 5.0f, -5.0f);
 			Zeus.cooldownm.add(p);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					Arrays.resouper.add(p.getName());
-					p.sendMessage("§eVoc\u00ea utilizou a Chuva de Raios.");
+					p.sendMessage("ï¿½eVoc\u00ea utilizou a Chuva de Raios.");
 				}
 			}, 50L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					Arrays.resouper.remove(p.getName());
 				}
 			}, 100L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					Zeus.cooldownm.remove(p);
-					p.sendMessage("§eVoce J\u00e1 pode usar seu Kit!");
+					p.sendMessage("ï¿½eVoce J\u00e1 pode usar seu Kit!");
 					p.getWorld().playSound(p.getLocation(), Sound.BURP, 5.0f, 5.0f);
 				}
 			}, 1000L);
@@ -111,8 +111,8 @@ public class Zeus implements CommandExecutor, Listener {
 				Bukkit.getServer().getWorld(pertos.getLocation().getWorld().getName())
 						.spawnEntity(loc, EntityType.ARROW);
 				final Player perto = (Player) pertos;
-				BarAPI.setMessage(perto, String.valueOf(p.getDisplayName()) + " §aChuva de Raios Fuja");
-				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+				BarAPI.setMessage(perto, String.valueOf(p.getDisplayName()) + " ï¿½aChuva de Raios Fuja");
+				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.plugin, (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						BarAPI.removeBar(perto);

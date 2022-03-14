@@ -22,7 +22,7 @@ import org.bukkit.potion.PotionEffectType;
 
 import me.confuser.barapi.BarAPI;
 import zEvents.Tab;
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Mago implements CommandExecutor, Listener {
 	public static ArrayList<Player> cooldownm;
@@ -45,17 +45,17 @@ public class Mago implements CommandExecutor, Listener {
 			Arrays.used.add(p.getName());
 			Arrays.ironman.add(p.getName());
 			p.getInventory().clear();
-			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit §6 >> " + ChatColor.GRAY + " Mago");
-			BarAPI.setMessage(p, "§7§lSeu Kit §6§l- §f§lMago", 10);
-			Tab.sendTitle(p, "§cMago");
+			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit ï¿½6 >> " + ChatColor.GRAY + " Mago");
+			BarAPI.setMessage(p, "ï¿½7ï¿½lSeu Kit ï¿½6ï¿½l- ï¿½fï¿½lMago", 10);
+			Tab.sendTitle(p, "ï¿½cMago");
 			final ItemStack bow = new ItemStack(Material.STONE_SWORD);
 			final ItemMeta bowmeta = bow.getItemMeta();
-			bowmeta.setDisplayName("§9Espada de Pedra");
+			bowmeta.setDisplayName("ï¿½9Espada de Pedra");
 			bow.setItemMeta(bowmeta);
 			p.getInventory().setItem(0, bow);
 			final ItemStack nova = new ItemStack(Material.POTION);
 			final ItemMeta novameta = nova.getItemMeta();
-			novameta.setDisplayName("§a Efeito Random");
+			novameta.setDisplayName("ï¿½a Efeito Random");
 			nova.setItemMeta(novameta);
 			p.getInventory().setItem(1, nova);
 			KitsManager.darSopas(p);
@@ -71,41 +71,41 @@ public class Mago implements CommandExecutor, Listener {
 			e.setCancelled(true);
 			p.updateInventory();
 			if (Mago.cooldownm.contains(p)) {
-				p.sendMessage("§6>> §eKit em Cooldown!");
+				p.sendMessage("ï¿½6>> ï¿½eKit em Cooldown!");
 				return;
 			}
 			final Random random = new Random();
 			final int i = random.nextInt(5);
 			if (i == 0) {
 				p.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 300, 0));
-				p.sendMessage("§7Voce recebeu o efeito §aFor\u00e7a");
+				p.sendMessage("ï¿½7Voce recebeu o efeito ï¿½aFor\u00e7a");
 			}
 			if (i == 1) {
 				p.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 300, 0));
-				p.sendMessage("§7Voce recebeu o efeito §aFraqueza");
+				p.sendMessage("ï¿½7Voce recebeu o efeito ï¿½aFraqueza");
 			}
 			if (i == 2) {
 				p.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 300, 0));
-				p.sendMessage("§7Voce recebeu o efeito §aCegueira");
+				p.sendMessage("ï¿½7Voce recebeu o efeito ï¿½aCegueira");
 			}
 			if (i == 3) {
 				p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 300, 0));
-				p.sendMessage("§7Voce recebeu o efeito §aVelocidade");
+				p.sendMessage("ï¿½7Voce recebeu o efeito ï¿½aVelocidade");
 			}
 			if (i == 3) {
 				p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 300, 0));
-				p.sendMessage("§7Voce recebeu o efeito §aRegenera\u00e7\u00e3o");
+				p.sendMessage("ï¿½7Voce recebeu o efeito ï¿½aRegenera\u00e7\u00e3o");
 			}
 			if (i == 4) {
 				p.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 300, 0));
-				p.sendMessage("§7Voce recebeu o efeito §aVeneno");
+				p.sendMessage("ï¿½7Voce recebeu o efeito ï¿½aVeneno");
 			}
 			Mago.cooldownm.add(p);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					Mago.cooldownm.remove(p);
-					p.sendMessage("§6>> §eVoce pode usar novamente!");
+					p.sendMessage("ï¿½6>> ï¿½eVoce pode usar novamente!");
 					p.playSound(p.getLocation(), Sound.LEVEL_UP, 1.0f, 1.0f);
 					p.getWorld().playSound(p.getLocation(), Sound.BURP, 5.0f, 5.0f);
 				}

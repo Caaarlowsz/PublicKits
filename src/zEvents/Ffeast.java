@@ -11,23 +11,23 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Ffeast implements Listener {
 	public static void setSimulatorCords1(final Player player) {
-		final ConfigurationSection list = Main.getPlugin().getConfig().getConfigurationSection("MiniFeast");
+		final ConfigurationSection list = PublicPvP.getPlugin().getConfig().getConfigurationSection("MiniFeast");
 		final Location loc = player.getLocation();
 		list.set("x", (Object) loc.getBlockX());
 		list.set("y", (Object) loc.getBlockY());
 		list.set("z", (Object) loc.getBlockZ());
-		Main.plugin.saveConfig();
+		PublicPvP.plugin.saveConfig();
 	}
 
 	public static void miniFeast() {
 		Player[] onlinePlayers;
 		for (int length = (onlinePlayers = Bukkit.getServer().getOnlinePlayers()).length, i = 0; i < length; ++i) {
 			final Player p1 = onlinePlayers[i];
-			final ConfigurationSection list = Main.getPlugin().getConfig().getConfigurationSection("MiniFeast");
+			final ConfigurationSection list = PublicPvP.getPlugin().getConfig().getConfigurationSection("MiniFeast");
 			final int x = (int) list.get("x");
 			final int z = (int) list.get("z");
 			final Random r = new Random();
@@ -440,7 +440,7 @@ public class Ffeast implements Listener {
 		Player[] onlinePlayers;
 		for (int length = (onlinePlayers = Bukkit.getServer().getOnlinePlayers()).length, i = 0; i < length; ++i) {
 			final Player p1 = onlinePlayers[i];
-			final ConfigurationSection list = Main.getPlugin().getConfig().getConfigurationSection("MiniFeast");
+			final ConfigurationSection list = PublicPvP.getPlugin().getConfig().getConfigurationSection("MiniFeast");
 			final int x = (int) list.get("x");
 			final int z = (int) list.get("z");
 			p1.getLocation().getWorld().getBlockAt(x + 1, p1.getLocation().getWorld().getHighestBlockYAt(x, z), z + 1)

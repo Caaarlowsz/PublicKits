@@ -24,7 +24,7 @@ import org.bukkit.util.Vector;
 
 import me.confuser.barapi.BarAPI;
 import zEvents.Tab;
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Tornado implements Listener, CommandExecutor {
 	public static ArrayList<Player> cooldownm;
@@ -47,17 +47,17 @@ public class Tornado implements Listener, CommandExecutor {
 			Arrays.used.add(p.getName());
 			Arrays.reaper.add(p.getName());
 			p.getInventory().clear();
-			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit §6 >> " + ChatColor.GRAY + " Tornado");
-			BarAPI.setMessage(p, "§7§lSeu Kit §6§l- §f§lTornado", 10);
-			Tab.sendTitle(p, "§cTornado");
+			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit ï¿½6 >> " + ChatColor.GRAY + " Tornado");
+			BarAPI.setMessage(p, "ï¿½7ï¿½lSeu Kit ï¿½6ï¿½l- ï¿½fï¿½lTornado", 10);
+			Tab.sendTitle(p, "ï¿½cTornado");
 			final ItemStack bow = new ItemStack(Material.STONE_SWORD);
 			final ItemMeta bowmeta = bow.getItemMeta();
-			bowmeta.setDisplayName("§9Espada de Pedra");
+			bowmeta.setDisplayName("ï¿½9Espada de Pedra");
 			bow.setItemMeta(bowmeta);
 			p.getInventory().setItem(0, bow);
 			final ItemStack b = new ItemStack(Material.HOPPER);
 			final ItemMeta bmeta = b.getItemMeta();
-			bmeta.setDisplayName("§aTornado");
+			bmeta.setDisplayName("ï¿½aTornado");
 			b.setItemMeta(bmeta);
 			p.getInventory().setItem(1, b);
 			KitsManager.darSopas(p);
@@ -75,30 +75,30 @@ public class Tornado implements Listener, CommandExecutor {
 				event.setCancelled(true);
 			}
 			if (Tornado.cooldownm.contains(p)) {
-				p.sendMessage("§eKit em cooldown acabar!");
+				p.sendMessage("ï¿½eKit em cooldown acabar!");
 				return;
 			}
 			final Location loc = p.getLocation();
 			p.getWorld().playSound(loc, Sound.AMBIENCE_RAIN, 5.0f, -5.0f);
 			Tornado.cooldownm.add(p);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					Arrays.barbarian.add(p.getName());
-					p.sendMessage("§eVoc\u00ea utilizou o Tornado.");
+					p.sendMessage("ï¿½eVoc\u00ea utilizou o Tornado.");
 				}
 			}, 0L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					Arrays.barbarian.remove(p.getName());
 				}
 			}, 100L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					Tornado.cooldownm.remove(p);
-					p.sendMessage("§eVoce J\u00e1 pode usar seu Kit!");
+					p.sendMessage("ï¿½eVoce J\u00e1 pode usar seu Kit!");
 					p.getWorld().playSound(p.getLocation(), Sound.BURP, 5.0f, 5.0f);
 				}
 			}, 1000L);
@@ -118,8 +118,8 @@ public class Tornado implements Listener, CommandExecutor {
 				p.getWorld().playEffect(p.getLocation(), Effect.EXPLOSION, 100, 1);
 				final Player perto = (Player) pertos;
 				pertos.setVelocity(new Vector(2.0, 0.3, 2.0));
-				BarAPI.setMessage(perto, String.valueOf(p.getDisplayName()) + " §aTornado Fuja");
-				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+				BarAPI.setMessage(perto, String.valueOf(p.getDisplayName()) + " ï¿½aTornado Fuja");
+				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.plugin, (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						BarAPI.removeBar(perto);

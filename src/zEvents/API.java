@@ -2,10 +2,10 @@ package zEvents;
 
 import org.bukkit.event.Listener;
 
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class API implements Listener {
-	public API(final Main main) {
+	public API(final PublicPvP main) {
 	}
 
 	public static String getMod(final String name) {

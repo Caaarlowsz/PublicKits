@@ -8,7 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Bc implements CommandExecutor, Listener {
 	public boolean onCommand(final CommandSender sender, final Command cmd, final String label, final String[] args) {
@@ -24,8 +24,8 @@ public class Bc implements CommandExecutor, Listener {
 				final String msg2 = arrayOfStrings[i];
 				msg = String.valueOf(msg) + msg2 + " ";
 			}
-			Bukkit.broadcastMessage(String.valueOf(Main.getPlugin().getConfig().getString("server").replace("&", "§"))
-					+ " §6>> " + msg.replace("&", "§"));
+			Bukkit.broadcastMessage(String.valueOf(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+					+ " ï¿½6>> " + msg.replace("&", "ï¿½"));
 		}
 		return false;
 	}

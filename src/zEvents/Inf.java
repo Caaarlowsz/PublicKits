@@ -28,7 +28,7 @@ import zKits.Supernova;
 import zKits.Terrorista;
 import zKits.Tornado;
 import zKits.Wither;
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Inf implements CommandExecutor, Listener {
 	public static ArrayList<Player> dly;
@@ -39,27 +39,27 @@ public class Inf implements CommandExecutor, Listener {
 
 	public boolean onCommand(final CommandSender sender, final Command cmd, final String tag, final String[] args) {
 		if (!(sender instanceof Player)) {
-			sender.sendMessage("§cVoc\u00ea n\u00e3o \u00e9 um jogador");
+			sender.sendMessage("ï¿½cVoc\u00ea n\u00e3o \u00e9 um jogador");
 			return true;
 		}
 		final Player p = (Player) sender;
 		if (tag.equalsIgnoreCase("inf")) {
 			if (!p.hasPermission("kitpvp.inf")) {
-				p.sendMessage("§cSem Permiss\u00e3o!");
+				p.sendMessage("ï¿½cSem Permiss\u00e3o!");
 				return true;
 			}
-			p.sendMessage("§7[§6>§7]§7Para setar warps use /set e a warp desejada");
+			p.sendMessage("ï¿½7[ï¿½6>ï¿½7]ï¿½7Para setar warps use /set e a warp desejada");
 			p.sendMessage(" ");
-			p.sendMessage("§7[§6>§7]§7Para abir a rdm use /rdmabir ou para fechar /rdmfechar");
+			p.sendMessage("ï¿½7[ï¿½6>ï¿½7]ï¿½7Para abir a rdm use /rdmabir ou para fechar /rdmfechar");
 			p.sendMessage(" ");
-			p.sendMessage("§7[§6>§7]§7Para spawnar Villagers de Sopa Use /sopinha e /recraft");
+			p.sendMessage("ï¿½7[ï¿½6>ï¿½7]ï¿½7Para spawnar Villagers de Sopa Use /sopinha e /recraft");
 			p.sendMessage(" ");
-			p.sendMessage("§7[§6>§7]§7Para dar level para players use /cash add nick quantidade");
+			p.sendMessage("ï¿½7[ï¿½6>ï¿½7]ï¿½7Para dar level para players use /cash add nick quantidade");
 			p.sendMessage(" ");
 			p.sendMessage(
-					"§7[§6>§7]§7Voc\u00ea Pode spawnar um feast quando quiser usando /ffeast e remove-lo usando  /rfeast");
+					"ï¿½7[ï¿½6>ï¿½7]ï¿½7Voc\u00ea Pode spawnar um feast quando quiser usando /ffeast e remove-lo usando  /rfeast");
 			p.sendMessage(" ");
-			p.sendMessage("§7[§6>§7]§7Para setar a posi\u00e7\u00e3o deste feast use /setffeast");
+			p.sendMessage("ï¿½7[ï¿½6>ï¿½7]ï¿½7Para setar a posi\u00e7\u00e3o deste feast use /setffeast");
 			return true;
 		} else {
 			if (cmd.getName().equalsIgnoreCase("cc") && p.hasPermission("kitpvp.inf")) {
@@ -228,7 +228,7 @@ public class Inf implements CommandExecutor, Listener {
 				p.sendMessage(" ");
 				p.sendMessage(" ");
 				p.sendMessage(" ");
-				p.sendMessage(" §7§o Chat Limpo.");
+				p.sendMessage(" ï¿½7ï¿½o Chat Limpo.");
 			}
 			if (cmd.getName().equalsIgnoreCase("resetkit") && p.hasPermission("kitpvp.resetkits")) {
 				Arrays.removeAbility(p);
@@ -264,33 +264,33 @@ public class Inf implements CommandExecutor, Listener {
 				p.getInventory().clear();
 				final ItemStack item12 = new ItemStack(Material.DIAMOND);
 				final ItemMeta itemmeta12 = item12.getItemMeta();
-				itemmeta12.setDisplayName("§a Warps");
+				itemmeta12.setDisplayName("ï¿½a Warps");
 				item12.setItemMeta(itemmeta12);
 				p.getInventory().setItem(2, item12);
 				final ItemStack item13 = new ItemStack(Material.CHEST);
 				final ItemMeta itemmeta13 = item13.getItemMeta();
-				itemmeta13.setDisplayName("§a Seletor de Kits");
+				itemmeta13.setDisplayName("ï¿½a Seletor de Kits");
 				item13.setItemMeta(itemmeta13);
 				p.getInventory().setItem(4, item13);
 				final ItemStack item14 = new ItemStack(Material.IRON_INGOT);
 				final ItemMeta itemmeta14 = item14.getItemMeta();
-				itemmeta14.setDisplayName("§a Extras");
+				itemmeta14.setDisplayName("ï¿½a Extras");
 				item14.setItemMeta(itemmeta14);
 				p.getInventory().setItem(6, item14);
-				p.sendMessage(" §bKit removido.");
+				p.sendMessage(" ï¿½bKit removido.");
 			}
 			if (!cmd.getName().equalsIgnoreCase("dragon")) {
 				return false;
 			}
-			if (Main.cash.get(p) >= 20) {
-				if (Main.getPlugin().getConfig().getConfigurationSection("dragon") == null) {
-					p.sendMessage("§cDragon Nao Setado!");
+			if (PublicPvP.cash.get(p) >= 20) {
+				if (PublicPvP.getPlugin().getConfig().getConfigurationSection("dragon") == null) {
+					p.sendMessage("ï¿½cDragon Nao Setado!");
 					return true;
 				}
-				final World w = Bukkit.getServer().getWorld(Main.getPlugin().getConfig().getString("dragon.world"));
-				final double x = Main.getPlugin().getConfig().getDouble("dragon.x");
-				final double y = Main.getPlugin().getConfig().getDouble("dragon.y");
-				final double z = Main.getPlugin().getConfig().getDouble("dragon.z");
+				final World w = Bukkit.getServer().getWorld(PublicPvP.getPlugin().getConfig().getString("dragon.world"));
+				final double x = PublicPvP.getPlugin().getConfig().getDouble("dragon.x");
+				final double y = PublicPvP.getPlugin().getConfig().getDouble("dragon.y");
+				final double z = PublicPvP.getPlugin().getConfig().getDouble("dragon.z");
 				p.teleport(new Location(w, x, y, z));
 				p.getInventory().clear();
 				final ItemStack Peitoral = new ItemStack(Material.LEATHER_CHESTPLATE);
@@ -315,13 +315,13 @@ public class Inf implements CommandExecutor, Listener {
 				p.getInventory().setBoots(Bota);
 				final ItemStack item15 = new ItemStack(Material.FIREBALL);
 				final ItemMeta itemmeta15 = item15.getItemMeta();
-				itemmeta15.setDisplayName("§c Drag\u00e3o");
+				itemmeta15.setDisplayName("ï¿½c Drag\u00e3o");
 				item15.setItemMeta(itemmeta15);
 				p.setAllowFlight(true);
 				p.getInventory().setItem(1, item15);
 				final ItemStack item16 = new ItemStack(Material.STONE_SWORD);
 				final ItemMeta itemmeta16 = item16.getItemMeta();
-				itemmeta16.setDisplayName("§c SwordDragon");
+				itemmeta16.setDisplayName("ï¿½c SwordDragon");
 				item16.setItemMeta(itemmeta16);
 				p.setAllowFlight(true);
 				p.getInventory().setItem(0, item16);
@@ -330,15 +330,15 @@ public class Inf implements CommandExecutor, Listener {
 				p.removePotionEffect(PotionEffectType.SPEED);
 			}
 			if (cmd.getName().equalsIgnoreCase("dragon")) {
-				if (Main.cash.get(p) >= 20) {
-					if (Main.getPlugin().getConfig().getConfigurationSection("dragon") == null) {
-						p.sendMessage("§cDragon Nao Setado!");
+				if (PublicPvP.cash.get(p) >= 20) {
+					if (PublicPvP.getPlugin().getConfig().getConfigurationSection("dragon") == null) {
+						p.sendMessage("ï¿½cDragon Nao Setado!");
 						return true;
 					}
-					final World w = Bukkit.getServer().getWorld(Main.getPlugin().getConfig().getString("dragon.world"));
-					final double x = Main.getPlugin().getConfig().getDouble("dragon.x");
-					final double y = Main.getPlugin().getConfig().getDouble("dragon.y");
-					final double z = Main.getPlugin().getConfig().getDouble("dragon.z");
+					final World w = Bukkit.getServer().getWorld(PublicPvP.getPlugin().getConfig().getString("dragon.world"));
+					final double x = PublicPvP.getPlugin().getConfig().getDouble("dragon.x");
+					final double y = PublicPvP.getPlugin().getConfig().getDouble("dragon.y");
+					final double z = PublicPvP.getPlugin().getConfig().getDouble("dragon.z");
 					p.teleport(new Location(w, x, y, z));
 					p.getInventory().clear();
 					final ItemStack Peitoral = new ItemStack(Material.LEATHER_CHESTPLATE);
@@ -363,13 +363,13 @@ public class Inf implements CommandExecutor, Listener {
 					p.getInventory().setBoots(Bota);
 					final ItemStack item15 = new ItemStack(Material.FIREBALL);
 					final ItemMeta itemmeta15 = item15.getItemMeta();
-					itemmeta15.setDisplayName("§c Drag\u00e3o");
+					itemmeta15.setDisplayName("ï¿½c Drag\u00e3o");
 					item15.setItemMeta(itemmeta15);
 					p.setAllowFlight(true);
 					p.getInventory().setItem(1, item15);
 					final ItemStack item16 = new ItemStack(Material.STONE_SWORD);
 					final ItemMeta itemmeta16 = item16.getItemMeta();
-					itemmeta16.setDisplayName("§c SwordDragon");
+					itemmeta16.setDisplayName("ï¿½c SwordDragon");
 					item16.setItemMeta(itemmeta16);
 					p.setAllowFlight(true);
 					p.getInventory().setItem(0, item16);

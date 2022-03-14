@@ -22,7 +22,7 @@ import org.bukkit.potion.PotionEffectType;
 
 import me.confuser.barapi.BarAPI;
 import zEvents.Tab;
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Firer implements CommandExecutor, Listener {
 	public static ArrayList<String> Pegos;
@@ -47,9 +47,9 @@ public class Firer implements CommandExecutor, Listener {
 			Arrays.used.add(p.getName());
 			Arrays.magma.add(p.getName());
 			p.getInventory().clear();
-			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit §6 >> " + ChatColor.GRAY + " Firer");
-			BarAPI.setMessage(p, "§7§lSeu Kit §6§l- §f§lFirer", 10);
-			Tab.sendTitle(p, "§cFirer");
+			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit ï¿½6 >> " + ChatColor.GRAY + " Firer");
+			BarAPI.setMessage(p, "ï¿½7ï¿½lSeu Kit ï¿½6ï¿½l- ï¿½fï¿½lFirer", 10);
+			Tab.sendTitle(p, "ï¿½cFirer");
 			p.getInventory().addItem(new ItemStack[] { new ItemStack(Material.STONE_SWORD) });
 			p.getInventory().addItem(new ItemStack[] { new ItemStack(Material.BLAZE_POWDER) });
 			KitsManager.darSopas(p);
@@ -65,8 +65,8 @@ public class Firer implements CommandExecutor, Listener {
 			e.setCancelled(true);
 			p.updateInventory();
 			if (Firer.cooldownm.contains(p)) {
-				p.sendMessage(String.valueOf(Main.getPlugin().getConfig().getString("server").replace("&", "§"))
-						+ " §l§6>> §eKit em Cooldown!");
+				p.sendMessage(String.valueOf(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+						+ " ï¿½lï¿½6>> ï¿½eKit em Cooldown!");
 				return;
 			}
 			final List<Entity> Local = (List<Entity>) p.getNearbyEntities(10.0, 10.0, 10.0);
@@ -75,15 +75,15 @@ public class Firer implements CommandExecutor, Listener {
 				((LivingEntity) Inimigos).addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 170, 2));
 				((LivingEntity) Inimigos).addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 170, 2));
 				((LivingEntity) Inimigos).addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 170, 2));
-				((CommandSender) Inimigos).sendMessage("§cVoc\u00ea foi atingido por 1 firer");
+				((CommandSender) Inimigos).sendMessage("ï¿½cVoc\u00ea foi atingido por 1 firer");
 				p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 170, 2));
 				p.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 170, 2));
 				Firer.cooldownm.add(p);
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(PublicPvP.plugin, (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						Firer.cooldownm.remove(p);
-						p.sendMessage("§eVoc\u00ea J\u00e1 pode usar seu Kit");
+						p.sendMessage("ï¿½eVoc\u00ea J\u00e1 pode usar seu Kit");
 					}
 				}, 750L);
 			}

@@ -18,10 +18,10 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Jump implements Listener {
-	Main main;
+	PublicPvP main;
 	public static ArrayList<String> jump;
 	ArrayList<String> nofalldamagec;
 	ArrayList<String> nofalldamagewaitsd;
@@ -32,7 +32,7 @@ public class Jump implements Listener {
 		Jump.jump = new ArrayList<String>();
 	}
 
-	public Jump(Main plugin) {
+	public Jump(PublicPvP plugin) {
 		this.nofalldamagec = new ArrayList<String>();
 		this.nofalldamagewaitsd = new ArrayList<String>();
 		this.nofalldamage = new ArrayList<String>();

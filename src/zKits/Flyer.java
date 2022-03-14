@@ -26,7 +26,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.util.Vector;
 
 import me.confuser.barapi.BarAPI;
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Flyer implements CommandExecutor, Listener {
 	public ArrayList<String> congelado;
@@ -57,16 +57,16 @@ public class Flyer implements CommandExecutor, Listener {
 			Arrays.used.add(p.getName());
 			Arrays.avatar.add(p.getName());
 			p.getInventory().clear();
-			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit §6 >> " + ChatColor.GRAY + " Iceman");
-			BarAPI.setMessage(p, "§7§lSeu Kit §6§l- §f§lIceman", 10);
+			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit ï¿½6 >> " + ChatColor.GRAY + " Iceman");
+			BarAPI.setMessage(p, "ï¿½7ï¿½lSeu Kit ï¿½6ï¿½l- ï¿½fï¿½lIceman", 10);
 			final ItemStack bow = new ItemStack(Material.STONE_SWORD);
 			final ItemMeta bowmeta = bow.getItemMeta();
-			bowmeta.setDisplayName("§9Espada de Pedra");
+			bowmeta.setDisplayName("ï¿½9Espada de Pedra");
 			bow.setItemMeta(bowmeta);
 			p.getInventory().setItem(0, bow);
 			final ItemStack bow2 = new ItemStack(Material.ICE);
 			final ItemMeta bowmeta2 = bow2.getItemMeta();
-			bowmeta2.setDisplayName("§bRei do Gelo");
+			bowmeta2.setDisplayName("ï¿½bRei do Gelo");
 			bow2.setItemMeta(bowmeta2);
 			p.getInventory().setItem(1, bow2);
 			KitsManager.darSopas(p);
@@ -80,8 +80,8 @@ public class Flyer implements CommandExecutor, Listener {
 		e.getAction();
 		if (Action.RIGHT_CLICK_BLOCK != null && p.getItemInHand().getType() == Material.ICE) {
 			if (Flyer.cooldownm.contains(p)) {
-				p.sendMessage(String.valueOf(Main.getPlugin().getConfig().getString("server").replace("&", "§"))
-						+ " §l§6>> §eKit em Cooldown!");
+				p.sendMessage(String.valueOf(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+						+ " ï¿½lï¿½6>> ï¿½eKit em Cooldown!");
 				return;
 			}
 			Arrays.gelo.add(p.getName());
@@ -98,18 +98,18 @@ public class Flyer implements CommandExecutor, Listener {
 			final Vector pular = vec.multiply(0.1).setY(0.17 * forca);
 			final Vector olhar = loc.getDirection().normalize().multiply(1.5);
 			tapete.setVelocity(pular.add(olhar));
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					tapete.remove();
 					Arrays.gelo.remove(p.getName());
 				}
 			}, 50L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					Flyer.cooldownm.remove(p);
-					p.sendMessage("§eJ\u00e1 pode Usar Seu Kit");
+					p.sendMessage("ï¿½eJ\u00e1 pode Usar Seu Kit");
 				}
 			}, 400L);
 		}
@@ -126,17 +126,17 @@ public class Flyer implements CommandExecutor, Listener {
 						continue;
 					}
 					this.congelado.add(nearby.getName());
-					nearby.sendMessage("§c Um IceMan passou por voc\u00ea por isso esta congelado");
+					nearby.sendMessage("ï¿½c Um IceMan passou por voc\u00ea por isso esta congelado");
 					p.getWorld().playEffect(p.getLocation(), Effect.CLOUD, 20);
 					p.getWorld().playEffect(p.getLocation(), Effect.WATERDRIP, 15);
-					Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(),
+					Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.getPlugin(),
 							(Runnable) new Runnable() {
 								@Override
 								public void run() {
 									Flyer.this.congelado.remove(nearby.getName());
 								}
 							}, 100L);
-					Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(),
+					Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.getPlugin(),
 							(Runnable) new Runnable() {
 								@Override
 								public void run() {
@@ -173,7 +173,7 @@ public class Flyer implements CommandExecutor, Listener {
 
 	@EventHandler
 	public void QuebrarItem1(final PlayerDropItemEvent e) {
-		if (e.getItemDrop().hasMetadata("§bRei do Gelo")) {
+		if (e.getItemDrop().hasMetadata("ï¿½bRei do Gelo")) {
 			e.setCancelled(true);
 		}
 	}

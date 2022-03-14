@@ -22,7 +22,7 @@ import org.bukkit.util.Vector;
 
 import me.confuser.barapi.BarAPI;
 import zEvents.Tab;
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Terrorista implements Listener, CommandExecutor {
 	public static ArrayList<Player> cooldownm;
@@ -45,11 +45,11 @@ public class Terrorista implements Listener, CommandExecutor {
 			Arrays.used.add(p.getName());
 			Arrays.terrorista.add(p.getName());
 			p.getInventory().clear();
-			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit §6 >> " + ChatColor.GRAY + " Terrorista");
-			Tab.sendTitle(p, "§cTerrorista");
+			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit ï¿½6 >> " + ChatColor.GRAY + " Terrorista");
+			Tab.sendTitle(p, "ï¿½cTerrorista");
 			p.getInventory().addItem(new ItemStack[] { new ItemStack(Material.STONE_SWORD) });
 			p.getInventory().addItem(new ItemStack[] { new ItemStack(Material.MAGMA_CREAM) });
-			BarAPI.setMessage(p, "§7§lSeu Kit §6§l- §f§lTerrorista", 10);
+			BarAPI.setMessage(p, "ï¿½7ï¿½lSeu Kit ï¿½6ï¿½l- ï¿½fï¿½lTerrorista", 10);
 			KitsManager.darSopas(p);
 		}
 		return false;
@@ -65,8 +65,8 @@ public class Terrorista implements Listener, CommandExecutor {
 				event.setCancelled(true);
 			}
 			if (Terrorista.cooldownm.contains(p)) {
-				p.sendMessage(String.valueOf(Main.getPlugin().getConfig().getString("server").replace("&", "§"))
-						+ ">> §eKit em Cooldown!");
+				p.sendMessage(String.valueOf(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+						+ ">> ï¿½eKit em Cooldown!");
 				return;
 			}
 			final Vector vector = p.getEyeLocation().getDirection();
@@ -76,11 +76,11 @@ public class Terrorista implements Listener, CommandExecutor {
 			final Location loc = p.getLocation();
 			p.getWorld().playSound(loc, Sound.ENDERMAN_TELEPORT, 5.0f, -5.0f);
 			Terrorista.cooldownm.add(p);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					Terrorista.cooldownm.remove(p);
-					p.sendMessage("§eVoce pode usar novamente!");
+					p.sendMessage("ï¿½eVoce pode usar novamente!");
 					p.playSound(p.getLocation(), Sound.LEVEL_UP, 1.0f, 1.0f);
 					p.getWorld().playSound(p.getLocation(), Sound.BURP, 5.0f, 5.0f);
 				}

@@ -10,10 +10,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Surprise implements CommandExecutor, Listener {
-	public Surprise(final Main main) {
+	public Surprise(final PublicPvP main) {
 	}
 
 	public Surprise() {

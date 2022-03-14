@@ -16,7 +16,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Click implements Listener, CommandExecutor {
 	public static ArrayList<String> Macro;
@@ -55,7 +55,7 @@ public class Click implements Listener, CommandExecutor {
 			p.getInventory().clear();
 			final ItemStack bow = new ItemStack(Material.DIAMOND_SWORD);
 			final ItemMeta bowmeta = bow.getItemMeta();
-			bowmeta.setDisplayName("§9Espada de Diamante");
+			bowmeta.setDisplayName("ï¿½9Espada de Diamante");
 			bow.setItemMeta(bowmeta);
 			p.getInventory().setItem(0, bow);
 			p.getInventory().setItem(4, bow);
@@ -64,32 +64,32 @@ public class Click implements Listener, CommandExecutor {
 			p.sendMessage(" ");
 			p.sendMessage(" ");
 			p.sendMessage(" ");
-			p.sendMessage("§aContando... ");
+			p.sendMessage("ï¿½aContando... ");
 			Click.Macro.add(p.getName());
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
-					p.sendMessage("§7§l---------- §6§lClickTeste§7§l ---------- §f");
+					p.sendMessage("ï¿½7ï¿½l---------- ï¿½6ï¿½lClickTesteï¿½7ï¿½l ---------- ï¿½f");
 					p.sendMessage("  ");
-					p.sendMessage("§f§lJogador: §6§l§n" + p.getName());
-					p.sendMessage("§f§lClicks por Sec: §6§l§n" + Click.macro.get(p) / 2);
-					p.sendMessage("§f§lClicks em 10 Seg: §6§l§n" + Click.macro.get(p) * 5);
+					p.sendMessage("ï¿½fï¿½lJogador: ï¿½6ï¿½lï¿½n" + p.getName());
+					p.sendMessage("ï¿½fï¿½lClicks por Sec: ï¿½6ï¿½lï¿½n" + Click.macro.get(p) / 2);
+					p.sendMessage("ï¿½fï¿½lClicks em 10 Seg: ï¿½6ï¿½lï¿½n" + Click.macro.get(p) * 5);
 					p.sendMessage(" ");
-					p.sendMessage("§7§l---------- §6§lClickTeste§7§l ---------- §f");
+					p.sendMessage("ï¿½7ï¿½l---------- ï¿½6ï¿½lClickTesteï¿½7ï¿½l ---------- ï¿½f");
 					p.getInventory().clear();
 					final ItemStack item12 = new ItemStack(Material.DIAMOND);
 					final ItemMeta itemmeta12 = item12.getItemMeta();
-					itemmeta12.setDisplayName("§a Warps");
+					itemmeta12.setDisplayName("ï¿½a Warps");
 					item12.setItemMeta(itemmeta12);
 					p.getInventory().setItem(2, item12);
 					final ItemStack item13 = new ItemStack(Material.CHEST);
 					final ItemMeta itemmeta13 = item13.getItemMeta();
-					itemmeta13.setDisplayName("§a Seletor de Kits");
+					itemmeta13.setDisplayName("ï¿½a Seletor de Kits");
 					item13.setItemMeta(itemmeta13);
 					p.getInventory().setItem(4, item13);
 					final ItemStack item14 = new ItemStack(Material.IRON_INGOT);
 					final ItemMeta itemmeta14 = item14.getItemMeta();
-					itemmeta14.setDisplayName("§a Extras");
+					itemmeta14.setDisplayName("ï¿½a Extras");
 					item14.setItemMeta(itemmeta14);
 					p.getInventory().setItem(6, item14);
 					Click.Macro.remove(p.getName());

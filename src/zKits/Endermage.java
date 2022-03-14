@@ -24,13 +24,13 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import me.confuser.barapi.BarAPI;
 import zEvents.Tab;
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Endermage implements CommandExecutor, Listener {
 	String teleport;
 
 	public Endermage() {
-		this.teleport = "§aPuxado!\nVoce esta invencivel por 5 segundos.";
+		this.teleport = "ï¿½aPuxado!\nVoce esta invencivel por 5 segundos.";
 	}
 
 	public boolean onCommand(final CommandSender sender, final Command cmd, final String arg2, final String[] arg3) {
@@ -47,9 +47,9 @@ public class Endermage implements CommandExecutor, Listener {
 			Arrays.used.add(p.getName());
 			Arrays.endermage.add(p.getName());
 			p.getInventory().clear();
-			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit §6 >> " + ChatColor.GRAY + " Endermage");
-			Tab.sendTitle(p, "§cEndermage");
-			BarAPI.setMessage(p, "§7§lSeu Kit §6§l- §f§lEndermage", 10);
+			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit ï¿½6 >> " + ChatColor.GRAY + " Endermage");
+			Tab.sendTitle(p, "ï¿½cEndermage");
+			BarAPI.setMessage(p, "ï¿½7ï¿½lSeu Kit ï¿½6ï¿½l- ï¿½fï¿½lEndermage", 10);
 			p.getInventory().addItem(new ItemStack[] { new ItemStack(Material.STONE_SWORD) });
 			p.getInventory().addItem(new ItemStack[] { new ItemStack(Material.PORTAL) });
 			KitsManager.darSopas(p);
@@ -119,7 +119,7 @@ public class Endermage implements CommandExecutor, Listener {
 							}
 						}
 					}
-				}.runTaskTimer(Main.plugin, 0L, 20L);
+				}.runTaskTimer(PublicPvP.plugin, 0L, 20L);
 			}
 		}
 	}

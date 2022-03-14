@@ -19,10 +19,10 @@ import org.bukkit.inventory.ItemStack;
 
 import me.confuser.barapi.BarAPI;
 import zEvents.Tab;
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Stomper implements Listener, CommandExecutor {
-	public static Main plugin;
+	public static PublicPvP plugin;
 	public static HashMap<String, Long> cooldown;
 	public static List<Player> cooldownm;
 
@@ -31,7 +31,7 @@ public class Stomper implements Listener, CommandExecutor {
 		Stomper.cooldownm = new ArrayList<Player>();
 	}
 
-	public Stomper(final Main main) {
+	public Stomper(final PublicPvP main) {
 	}
 
 	public boolean onCommand(final CommandSender sender, final Command cmd, final String arg2, final String[] arg3) {
@@ -48,10 +48,10 @@ public class Stomper implements Listener, CommandExecutor {
 			Arrays.used.add(p.getName());
 			Arrays.stomper.add(p.getName());
 			p.getInventory().clear();
-			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit §6 >> " + ChatColor.GRAY + " Stomper");
-			Tab.sendTitle(p, "§cStomper");
+			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit ï¿½6 >> " + ChatColor.GRAY + " Stomper");
+			Tab.sendTitle(p, "ï¿½cStomper");
 			p.getInventory().addItem(new ItemStack[] { new ItemStack(Material.STONE_SWORD) });
-			BarAPI.setMessage(p, "§7§lSeu Kit §6§l- §f§lStomper", 10);
+			BarAPI.setMessage(p, "ï¿½7ï¿½lSeu Kit ï¿½6ï¿½l- ï¿½fï¿½lStomper", 10);
 			KitsManager.darSopas(p);
 		}
 		return false;

@@ -29,7 +29,7 @@ import org.bukkit.util.Vector;
 
 import me.confuser.barapi.BarAPI;
 import zEvents.Tab;
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Sonic implements Listener, CommandExecutor {
 	public static ArrayList<Player> Cooldown;
@@ -56,11 +56,11 @@ public class Sonic implements Listener, CommandExecutor {
 			Arrays.used.add(p.getName());
 			Arrays.shadow.add(p.getName());
 			p.getInventory().clear();
-			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit §6 >> " + ChatColor.GRAY + " DeshFire");
-			Tab.sendTitle(p, "§cSonic");
+			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit ï¿½6 >> " + ChatColor.GRAY + " DeshFire");
+			Tab.sendTitle(p, "ï¿½cSonic");
 			p.getInventory().addItem(new ItemStack[] { new ItemStack(Material.STONE_SWORD) });
 			p.getInventory().addItem(new ItemStack[] { new ItemStack(Material.LAPIS_BLOCK) });
-			BarAPI.setMessage(p, "§7§lSeu Kit §6§l- §f§lSonic", 10);
+			BarAPI.setMessage(p, "ï¿½7ï¿½lSeu Kit ï¿½6ï¿½l- ï¿½fï¿½lSonic", 10);
 			KitsManager.darSopas(p);
 		}
 		return false;
@@ -74,8 +74,8 @@ public class Sonic implements Listener, CommandExecutor {
 			e.setCancelled(true);
 			p.updateInventory();
 			if (Sonic.cooldownm.contains(p)) {
-				p.sendMessage(String.valueOf(Main.getPlugin().getConfig().getString("server").replace("&", "§"))
-						+ " §l§6>> §eKit em Cooldown!");
+				p.sendMessage(String.valueOf(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+						+ " ï¿½lï¿½6>> ï¿½eKit em Cooldown!");
 				return;
 			}
 			Sonic.Armadura.put(p.getName(), p.getInventory().getArmorContents());
@@ -99,8 +99,8 @@ public class Sonic implements Listener, CommandExecutor {
 			p.getInventory().setHelmet(Capacete);
 			p.getInventory().setLeggings(Calca);
 			p.getInventory().setBoots(Bota);
-			p.sendMessage(String.valueOf(Main.getPlugin().getConfig().getString("server").replace("&", "§"))
-					+ " >>  §eSonic Usado!");
+			p.sendMessage(String.valueOf(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+					+ " >>  ï¿½eSonic Usado!");
 			p.playSound(p.getLocation(), Sound.ANVIL_USE, 1.0f, 1.0f);
 			p.updateInventory();
 			final Vector Vector = p.getEyeLocation().getDirection();
@@ -109,33 +109,33 @@ public class Sonic implements Listener, CommandExecutor {
 			final List<Entity> Local = (List<Entity>) p.getNearbyEntities(10.0, 10.0, 10.0);
 			for (final Entity Inimigos : Local) {
 				((LivingEntity) Inimigos).addPotionEffect(new PotionEffect(PotionEffectType.POISON, 150, 1));
-				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						p.setVelocity(Vector);
 						p.getWorld().playEffect(p.getLocation(), Effect.POTION_BREAK, 100, 1);
 					}
 				}, 20L);
-				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						p.getWorld().playEffect(p.getLocation(), Effect.POTION_BREAK, 100, 1);
 					}
 				}, 30L);
-				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						p.getWorld().playEffect(p.getLocation(), Effect.POTION_BREAK, 100, 1);
 					}
 				}, 40L);
-				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						p.getWorld().playEffect(p.getLocation(), Effect.POTION_BREAK, 100, 1);
 					}
 				}, 50L);
 			}
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.getWorld().playEffect(p.getLocation(), Effect.POTION_BREAK, 100, 1);
@@ -144,11 +144,11 @@ public class Sonic implements Listener, CommandExecutor {
 				}
 			}, 60L);
 			Sonic.cooldownm.add(p);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					Sonic.cooldownm.remove(p);
-					p.sendMessage("§eVoce pode usar novamente!");
+					p.sendMessage("ï¿½eVoce pode usar novamente!");
 					p.playSound(p.getLocation(), Sound.LEVEL_UP, 1.0f, 1.0f);
 					p.getWorld().playSound(p.getLocation(), Sound.BURP, 5.0f, 5.0f);
 				}

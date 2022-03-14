@@ -7,17 +7,17 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class RdmA implements CommandExecutor, Listener {
 	public boolean onCommand(final CommandSender sender, final Command cmd, final String label, final String[] args) {
 		final Player p = (Player) sender;
 		if (label.equalsIgnoreCase("abrirrdm") && p.hasPermission("kitpvp.rdma")) {
-			Main.getPlugin().getServer().dispatchCommand(
-					(CommandSender) Main.getPlugin().getServer().getConsoleSender(),
+			PublicPvP.getPlugin().getServer().dispatchCommand(
+					(CommandSender) PublicPvP.getPlugin().getServer().getConsoleSender(),
 					"pex group default add kitpvp.rdmabrir");
-			Bukkit.broadcastMessage(Main.getPlugin().getConfig().getString("server").replace("&", "§")
-					+ " §6>> §bRDM Foi Aberta Corram Para Entrar!");
+			Bukkit.broadcastMessage(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½")
+					+ " ï¿½6>> ï¿½bRDM Foi Aberta Corram Para Entrar!");
 			return true;
 		}
 		return false;

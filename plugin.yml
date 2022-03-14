@@ -1,5 +1,5 @@
 name: PublicKits
-main: zPublic.Main
+main: com.github.caaarlowsz.publicmc.kitpvp.Main
 version: 1.0
 author: Kiwwi_
 commands:

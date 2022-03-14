@@ -1,8 +1,10 @@
-package zPublic;
+package com.github.caaarlowsz.publicmc.kitpvp;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.github.caaarlowsz.kitpvpapi.KitPvP;
+import com.github.caaarlowsz.kitpvpapi.KitPvPAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -85,9 +87,30 @@ import zKits.Zeus;
 import zMetodos.Seletor;
 import zMetodos.Seletor2;
 
-public class Main extends JavaPlugin implements CommandExecutor {
+public class PublicPvP extends JavaPlugin implements KitPvP, CommandExecutor {
+
+	@Override
+	public void onEnable() {
+		super.onEnable();
+		KitPvPAPI.setInstance(this);
+
+		// TODO: Remover quando melhorar a classe principal
+		this.enable();
+	}
+
+	@Override
+	public void onDisable() {
+		super.onDisable();
+		KitPvPAPI.setInstance(null);
+
+		// TODO: Remover quando melhorar a classe principal
+		this.disable();
+	}
+
+	// TODO: Melhorar a classe principal
+
 	public static Plugin plugin;
-	private static Main instance;
+	private static PublicPvP instance;
 	public static Economy econ;
 	public static Permission perm;
 	public static Permission perms;
@@ -99,33 +122,33 @@ public class Main extends JavaPlugin implements CommandExecutor {
 	public static HashMap<OfflinePlayer, Integer> cash;
 
 	static {
-		Main.econ = null;
-		Main.perm = null;
-		Main.perms = null;
-		Main.Na1v1 = new ArrayList<Player>();
-		Main.EmPvP = new ArrayList<Player>();
-		Main.parado = new ArrayList<Player>();
-		Main.protegido = new ArrayList<Player>();
-		Main.cooldown = new ArrayList<String>();
-		Main.cash = new HashMap<OfflinePlayer, Integer>();
+		PublicPvP.econ = null;
+		PublicPvP.perm = null;
+		PublicPvP.perms = null;
+		PublicPvP.Na1v1 = new ArrayList<Player>();
+		PublicPvP.EmPvP = new ArrayList<Player>();
+		PublicPvP.parado = new ArrayList<Player>();
+		PublicPvP.protegido = new ArrayList<Player>();
+		PublicPvP.cooldown = new ArrayList<String>();
+		PublicPvP.cash = new HashMap<OfflinePlayer, Integer>();
 	}
 
-	public void onEnable() {
+	public void enable() {
 		final RegisteredServiceProvider<Economy> economyProvider = this.getServer().getServicesManager()
 				.getRegistration(Economy.class);
 		if (economyProvider != null) {
-			Main.econ = (Economy) economyProvider.getProvider();
+			PublicPvP.econ = (Economy) economyProvider.getProvider();
 			final RegisteredServiceProvider<Permission> permissionprovider = this.getServer().getServicesManager()
 					.getRegistration(Permission.class);
 			if (permissionprovider != null) {
-				Main.perm = (Permission) permissionprovider.getProvider();
+				PublicPvP.perm = (Permission) permissionprovider.getProvider();
 				this.getServer().getConsoleSender()
-						.sendMessage("§7-------- §ePlugin Desenvolvido Por Kiwwi_ §7--------");
+						.sendMessage("ï¿½7-------- ï¿½ePlugin Desenvolvido Por Kiwwi_ ï¿½7--------");
 				this.saveInicial();
 				this.putMoney();
 				super.onEnable();
 				this.onRegistro();
-				((Main) (Main.plugin = (Plugin) this)).saveDefaultConfig();
+				((PublicPvP) (PublicPvP.plugin = (Plugin) this)).saveDefaultConfig();
 				this.saveCash();
 				SFeast.start();
 				SFeast.start1();
@@ -134,7 +157,7 @@ public class Main extends JavaPlugin implements CommandExecutor {
 		}
 	}
 
-	public void onDisable() {
+	public void disable() {
 		this.saveCash();
 	}
 
@@ -241,12 +264,12 @@ public class Main extends JavaPlugin implements CommandExecutor {
 		this.getCommand("invsee").setExecutor((CommandExecutor) new Invsee());
 	}
 
-	public static Main getInstance() {
-		return Main.instance;
+	public static PublicPvP getInstance() {
+		return PublicPvP.instance;
 	}
 
 	public static Plugin getPlugin() {
-		return Main.plugin;
+		return PublicPvP.plugin;
 	}
 
 	public void putMoney() {
@@ -254,9 +277,9 @@ public class Main extends JavaPlugin implements CommandExecutor {
 		for (int length = (offlinePlayers = Bukkit.getOfflinePlayers()).length, i = 0; i < length; ++i) {
 			final OfflinePlayer p = offlinePlayers[i];
 			if (this.getConfig().contains("Cash." + p.getName())) {
-				Main.cash.put(p, this.getConfig().getInt("Cash." + p.getName()));
+				PublicPvP.cash.put(p, this.getConfig().getInt("Cash." + p.getName()));
 			} else {
-				Main.cash.put(p, this.getInicial());
+				PublicPvP.cash.put(p, this.getInicial());
 			}
 		}
 	}
@@ -265,7 +288,7 @@ public class Main extends JavaPlugin implements CommandExecutor {
 		OfflinePlayer[] offlinePlayers;
 		for (int length = (offlinePlayers = Bukkit.getOfflinePlayers()).length, i = 0; i < length; ++i) {
 			final OfflinePlayer p = offlinePlayers[i];
-			this.getConfig().set("Cash." + p.getName(), (Object) Main.cash.get(p));
+			this.getConfig().set("Cash." + p.getName(), (Object) PublicPvP.cash.get(p));
 			this.saveConfig();
 		}
 	}
@@ -283,7 +306,7 @@ public class Main extends JavaPlugin implements CommandExecutor {
 	public boolean onCommand(final CommandSender sender, final Command cmd, final String label, final String[] args) {
 		final Player p = (Player) sender;
 		if (cmd.getName().equalsIgnoreCase("kreload") && p.hasPermission("admin.reload")) {
-			p.sendMessage("§aConfiguracoes recarregadas!");
+			p.sendMessage("ï¿½aConfiguracoes recarregadas!");
 			this.reloadConfig();
 		}
 		if (cmd.getName().equalsIgnoreCase("setfps") && p.hasPermission("admin.setar")) {
@@ -292,8 +315,8 @@ public class Main extends JavaPlugin implements CommandExecutor {
 			this.getConfig().set("fps.y", (Object) p.getLocation().getY());
 			this.getConfig().set("fps.z", (Object) p.getLocation().getZ());
 			this.saveConfig();
-			p.sendMessage(String.valueOf(getPlugin().getConfig().getString("server").replace("&", "§"))
-					+ " §4>> §7Warp Setada Com Sucessoo");
+			p.sendMessage(String.valueOf(getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+					+ " ï¿½4>> ï¿½7Warp Setada Com Sucessoo");
 			return true;
 		}
 		if (cmd.getName().equalsIgnoreCase("setdragon") && p.hasPermission("admin.setar")) {
@@ -302,8 +325,8 @@ public class Main extends JavaPlugin implements CommandExecutor {
 			this.getConfig().set("dragon.y", (Object) p.getLocation().getY());
 			this.getConfig().set("dragon.z", (Object) p.getLocation().getZ());
 			this.saveConfig();
-			p.sendMessage(String.valueOf(getPlugin().getConfig().getString("server").replace("&", "§"))
-					+ " §4>> §7Warp Setada Com Sucessoo");
+			p.sendMessage(String.valueOf(getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+					+ " ï¿½4>> ï¿½7Warp Setada Com Sucessoo");
 			return true;
 		}
 		if (cmd.getName().equalsIgnoreCase("sethard") && p.hasPermission("admin.setar")) {
@@ -312,8 +335,8 @@ public class Main extends JavaPlugin implements CommandExecutor {
 			this.getConfig().set("hard.y", (Object) p.getLocation().getY());
 			this.getConfig().set("hard.z", (Object) p.getLocation().getZ());
 			this.saveConfig();
-			p.sendMessage(String.valueOf(getPlugin().getConfig().getString("server").replace("&", "§"))
-					+ " §4>> §7Warp Setada Com Sucessoo");
+			p.sendMessage(String.valueOf(getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+					+ " ï¿½4>> ï¿½7Warp Setada Com Sucessoo");
 			return true;
 		}
 		if (cmd.getName().equalsIgnoreCase("setlava") && p.hasPermission("admin.setar")) {
@@ -322,8 +345,8 @@ public class Main extends JavaPlugin implements CommandExecutor {
 			this.getConfig().set("lava.y", (Object) p.getLocation().getY());
 			this.getConfig().set("lava.z", (Object) p.getLocation().getZ());
 			this.saveConfig();
-			p.sendMessage(String.valueOf(getPlugin().getConfig().getString("server").replace("&", "§"))
-					+ " §4>> §7Warp Setada Com Sucessoo");
+			p.sendMessage(String.valueOf(getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+					+ " ï¿½4>> ï¿½7Warp Setada Com Sucessoo");
 			return true;
 		}
 		if (cmd.getName().equalsIgnoreCase("setRDM") && p.hasPermission("admin.setar")) {
@@ -332,8 +355,8 @@ public class Main extends JavaPlugin implements CommandExecutor {
 			this.getConfig().set("rdm.y", (Object) p.getLocation().getY());
 			this.getConfig().set("rdm.z", (Object) p.getLocation().getZ());
 			this.saveConfig();
-			p.sendMessage(String.valueOf(getPlugin().getConfig().getString("server").replace("&", "§"))
-					+ " §4>> §7Warp Setada Com Sucesso");
+			p.sendMessage(String.valueOf(getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+					+ " ï¿½4>> ï¿½7Warp Setada Com Sucesso");
 			return true;
 		}
 		if (cmd.getName().equalsIgnoreCase("setSpawn") && p.hasPermission("admin.setar")) {
@@ -344,13 +367,13 @@ public class Main extends JavaPlugin implements CommandExecutor {
 			p.getWorld().setSpawnLocation(p.getLocation().getBlockX(), p.getLocation().getBlockY(),
 					p.getLocation().getBlockZ());
 			this.saveConfig();
-			p.sendMessage(String.valueOf(getPlugin().getConfig().getString("server").replace("&", "§"))
-					+ " §4>> §7Warp Setada Com Sucesso");
+			p.sendMessage(String.valueOf(getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+					+ " ï¿½4>> ï¿½7Warp Setada Com Sucesso");
 			return true;
 		}
 		if (cmd.getName().equalsIgnoreCase("fps")) {
 			if (this.getConfig().getConfigurationSection("fps") == null) {
-				p.sendMessage("§cFps Nao Setado!");
+				p.sendMessage("ï¿½cFps Nao Setado!");
 				return true;
 			}
 			final World w = Bukkit.getServer().getWorld(this.getConfig().getString("fps.world"));
@@ -377,7 +400,7 @@ public class Main extends JavaPlugin implements CommandExecutor {
 		}
 		if (cmd.getName().equalsIgnoreCase("spawn")) {
 			if (this.getConfig().getConfigurationSection("spawn") == null) {
-				p.sendMessage("§cSPAWN Nao Setado!");
+				p.sendMessage("ï¿½cSPAWN Nao Setado!");
 				return true;
 			}
 			final World w = Bukkit.getServer().getWorld(this.getConfig().getString("spawn.world"));
@@ -388,17 +411,17 @@ public class Main extends JavaPlugin implements CommandExecutor {
 			p.getInventory().clear();
 			final ItemStack item12 = new ItemStack(Material.DIAMOND);
 			final ItemMeta itemmeta12 = item12.getItemMeta();
-			itemmeta12.setDisplayName("§a Warps");
+			itemmeta12.setDisplayName("ï¿½a Warps");
 			item12.setItemMeta(itemmeta12);
 			p.getInventory().setItem(2, item12);
 			final ItemStack item13 = new ItemStack(Material.CHEST);
 			final ItemMeta itemmeta13 = item13.getItemMeta();
-			itemmeta13.setDisplayName("§a Seletor de Kits");
+			itemmeta13.setDisplayName("ï¿½a Seletor de Kits");
 			item13.setItemMeta(itemmeta13);
 			p.getInventory().setItem(4, item13);
 			final ItemStack item14 = new ItemStack(Material.IRON_INGOT);
 			final ItemMeta itemmeta14 = item14.getItemMeta();
-			itemmeta14.setDisplayName("§a Extras");
+			itemmeta14.setDisplayName("ï¿½a Extras");
 			item14.setItemMeta(itemmeta14);
 			p.getInventory().setItem(6, item14);
 			p.setAllowFlight(false);
@@ -409,9 +432,9 @@ public class Main extends JavaPlugin implements CommandExecutor {
 		if (!cmd.getName().equalsIgnoreCase("lava")) {
 			return false;
 		}
-		if (Main.cash.get(p) >= 15) {
+		if (PublicPvP.cash.get(p) >= 15) {
 			if (this.getConfig().getConfigurationSection("lava") == null) {
-				p.sendMessage("§cLava Nao Setado!");
+				p.sendMessage("ï¿½cLava Nao Setado!");
 				return true;
 			}
 			final World w = Bukkit.getServer().getWorld(this.getConfig().getString("lava.world"));
@@ -429,7 +452,7 @@ public class Main extends JavaPlugin implements CommandExecutor {
 		if (cmd.getName().equalsIgnoreCase("rdm")) {
 			if (p.hasPermission("kitpvp.rdmabrir")) {
 				if (this.getConfig().getConfigurationSection("rdm") == null) {
-					p.sendMessage("§cRDM Nao Setado!");
+					p.sendMessage("ï¿½cRDM Nao Setado!");
 					return true;
 				}
 				final World w = Bukkit.getServer().getWorld(this.getConfig().getString("rdm.world"));
@@ -456,7 +479,7 @@ public class Main extends JavaPlugin implements CommandExecutor {
 			}
 			if (cmd.getName().equalsIgnoreCase("feast")) {
 				if (this.getConfig().getConfigurationSection("feast") == null) {
-					p.sendMessage("§cFeast Nao Setado!");
+					p.sendMessage("ï¿½cFeast Nao Setado!");
 					return true;
 				}
 				final World w = Bukkit.getServer().getWorld(this.getConfig().getString("feast.world"));

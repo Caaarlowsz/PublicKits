@@ -23,7 +23,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import me.confuser.barapi.BarAPI;
 import zEvents.Tab;
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Wither implements CommandExecutor, Listener {
 	public static ArrayList<String> cooldown;
@@ -46,16 +46,16 @@ public class Wither implements CommandExecutor, Listener {
 			Arrays.used.add(p.getName());
 			Arrays.thor.add(p.getName());
 			p.getInventory().clear();
-			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit §6 >> " + ChatColor.GRAY + " Thor");
-			Tab.sendTitle(p, "§cThor");
-			BarAPI.setMessage(p, "§7§lSeu Kit §6§l- §f§lThor", 10);
+			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit ï¿½6 >> " + ChatColor.GRAY + " Thor");
+			Tab.sendTitle(p, "ï¿½cThor");
+			BarAPI.setMessage(p, "ï¿½7ï¿½lSeu Kit ï¿½6ï¿½l- ï¿½fï¿½lThor", 10);
 			final ItemStack bow = new ItemStack(Material.STONE_SWORD);
 			final ItemMeta bowmeta = bow.getItemMeta();
-			bowmeta.setDisplayName("§9Espada de Pedra");
+			bowmeta.setDisplayName("ï¿½9Espada de Pedra");
 			bow.setItemMeta(bowmeta);
 			final ItemStack Velotrol = new ItemStack(Material.WOOD_AXE);
 			final ItemMeta kVelotrol = Velotrol.getItemMeta();
-			kVelotrol.setDisplayName("§aThor");
+			kVelotrol.setDisplayName("ï¿½aThor");
 			Velotrol.setItemMeta(kVelotrol);
 			p.getInventory().setItem(0, bow);
 			p.getInventory().setItem(1, Velotrol);
@@ -73,8 +73,8 @@ public class Wither implements CommandExecutor, Listener {
 		if (p.getItemInHand().getType() == Material.WOOD_AXE && Arrays.thor.contains(p.getName())) {
 			if (Wither.cooldown.contains(p.getName())) {
 				e.setCancelled(true);
-				p.sendMessage(String.valueOf(Main.getPlugin().getConfig().getString("server").replace("&", "§"))
-						+ " §l§6>> §eKit em Cooldown!");
+				p.sendMessage(String.valueOf(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+						+ " ï¿½lï¿½6>> ï¿½eKit em Cooldown!");
 				return;
 			}
 			e.setCancelled(true);
@@ -84,11 +84,11 @@ public class Wither implements CommandExecutor, Listener {
 			p.getWorld().strikeLightning(p.getWorld().getHighestBlockAt(e.getClickedBlock().getLocation()).getLocation()
 					.clone().add(0.0, 0.0, 0.0));
 			Wither.cooldown.add(p.getName());
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					Wither.cooldown.remove(p.getName());
-					p.sendMessage("§eVoc\u00ea J\u00e1 Pode usar Seu Kit");
+					p.sendMessage("ï¿½eVoc\u00ea J\u00e1 Pode usar Seu Kit");
 				}
 			}, 100L);
 		}

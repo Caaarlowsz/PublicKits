@@ -8,19 +8,19 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class VerCash implements Listener, CommandExecutor {
 	public boolean onCommand(final CommandSender sender, final Command cmd, final String label, final String[] a) {
 		if (!(sender instanceof Player)) {
-			sender.sendMessage("§cApenas Players!");
+			sender.sendMessage("ï¿½cApenas Players!");
 		}
 		final Player p = (Player) sender;
 		if (!cmd.getName().equalsIgnoreCase("cash")) {
 			return false;
 		}
 		if (a.length == 0) {
-			p.sendMessage("§6" + Main.cash.get(p) + " §7de Cash");
+			p.sendMessage("ï¿½6" + PublicPvP.cash.get(p) + " ï¿½7de Cash");
 			return true;
 		}
 		if (a.length != 1) {
@@ -28,44 +28,44 @@ public class VerCash implements Listener, CommandExecutor {
 				if (a[0].equals("set")) {
 					final Player target = Bukkit.getPlayerExact(a[2]);
 					if (target == null) {
-						p.sendMessage("§cEste Player n\u00e3o existe ou n\u00e3o esta online.");
+						p.sendMessage("ï¿½cEste Player n\u00e3o existe ou n\u00e3o esta online.");
 						return true;
 					}
 					try {
 						final Integer numero = Integer.valueOf(a[1]);
-						Main.cash.put((OfflinePlayer) target, numero);
-						p.sendMessage("§7Level do Player " + target.getName() + " §6" + Main.cash.get(p));
+						PublicPvP.cash.put((OfflinePlayer) target, numero);
+						p.sendMessage("ï¿½7Level do Player " + target.getName() + " ï¿½6" + PublicPvP.cash.get(p));
 					} catch (Exception e) {
-						p.sendMessage("§c Isso n\u00e3o \u00e9 um numero!");
+						p.sendMessage("ï¿½c Isso n\u00e3o \u00e9 um numero!");
 					}
 					return true;
 				} else if (a[0].equals("take")) {
 					final Player target = Bukkit.getPlayerExact(a[2]);
 					if (target == null) {
-						p.sendMessage("§cEste Player n\u00e3o existe ou n\u00e3o esta online.");
+						p.sendMessage("ï¿½cEste Player n\u00e3o existe ou n\u00e3o esta online.");
 						return true;
 					}
 					try {
 						final Integer numero = Integer.valueOf(a[1]);
-						Main.cash.put((OfflinePlayer) target,
-								(numero > Main.cash.get(p)) ? 0 : (Main.cash.get(p) - numero));
-						p.sendMessage("§7Level do Player " + target.getName() + " §6" + Main.cash.get(p));
+						PublicPvP.cash.put((OfflinePlayer) target,
+								(numero > PublicPvP.cash.get(p)) ? 0 : (PublicPvP.cash.get(p) - numero));
+						p.sendMessage("ï¿½7Level do Player " + target.getName() + " ï¿½6" + PublicPvP.cash.get(p));
 					} catch (Exception e) {
-						p.sendMessage("§c Isso n\u00e3o \u00e9 um numero!");
+						p.sendMessage("ï¿½c Isso n\u00e3o \u00e9 um numero!");
 					}
 					return true;
 				} else if (a[0].equals("add")) {
 					final Player target = Bukkit.getPlayerExact(a[2]);
 					if (target == null) {
-						p.sendMessage("§cEste Player n\u00e3o existe ou n\u00e3o esta online.");
+						p.sendMessage("ï¿½cEste Player n\u00e3o existe ou n\u00e3o esta online.");
 						return true;
 					}
 					try {
 						final Integer numero = Integer.valueOf(a[1]);
-						Main.cash.put((OfflinePlayer) target, Main.cash.get(p) + numero);
-						p.sendMessage("§7Level do Player " + target.getName() + " §6" + Main.cash.get(p));
+						PublicPvP.cash.put((OfflinePlayer) target, PublicPvP.cash.get(p) + numero);
+						p.sendMessage("ï¿½7Level do Player " + target.getName() + " ï¿½6" + PublicPvP.cash.get(p));
 					} catch (Exception e) {
-						p.sendMessage("§c Isso n\u00e3o \u00e9 um numero!");
+						p.sendMessage("ï¿½c Isso n\u00e3o \u00e9 um numero!");
 					}
 					return true;
 				}
@@ -74,10 +74,10 @@ public class VerCash implements Listener, CommandExecutor {
 		}
 		final Player target = Bukkit.getPlayerExact(a[0]);
 		if (target == null) {
-			p.sendMessage("§cEste Player n\u00e3o existe ou n\u00e3o esta online.");
+			p.sendMessage("ï¿½cEste Player n\u00e3o existe ou n\u00e3o esta online.");
 			return true;
 		}
-		p.sendMessage("§7Level do Player " + target.getName() + " §6 " + Main.cash.get(p));
+		p.sendMessage("ï¿½7Level do Player " + target.getName() + " ï¿½6 " + PublicPvP.cash.get(p));
 		return true;
 	}
 }

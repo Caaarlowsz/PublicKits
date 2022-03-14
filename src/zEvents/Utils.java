@@ -48,7 +48,7 @@ import zKits.Supernova;
 import zKits.Terrorista;
 import zKits.Tornado;
 import zKits.Wither;
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Utils implements Listener {
 	ArrayList<String> mecheu;
@@ -65,7 +65,7 @@ public class Utils implements Listener {
 	@EventHandler
 	public void Quit(final PlayerQuitEvent e) {
 		final Player p = e.getPlayer();
-		e.setQuitMessage("§c>> - " + ChatColor.GRAY + p.getName() + " §c-  <<");
+		e.setQuitMessage("ï¿½c>> - " + ChatColor.GRAY + p.getName() + " ï¿½c-  <<");
 		p.getInventory().clear();
 		p.teleport(p.getWorld().getSpawnLocation());
 		Arrays.removeAbility(p);
@@ -106,8 +106,8 @@ public class Utils implements Listener {
 		if (evento.getMessage().equalsIgnoreCase("/pl") || evento.getMessage().equalsIgnoreCase("/plugins")
 				|| evento.getMessage().equalsIgnoreCase("/plugin") || evento.getMessage().equalsIgnoreCase("/help")
 				|| evento.getMessage().equalsIgnoreCase("/bukkit") || evento.getMessage().equalsIgnoreCase("/?")) {
-			p.sendMessage("§7Plugin Criado Por:");
-			p.sendMessage("§6>> §fKiwwi_ (skype:victor.fernades)");
+			p.sendMessage("ï¿½7Plugin Criado Por:");
+			p.sendMessage("ï¿½6>> ï¿½fKiwwi_ (skype:victor.fernades)");
 			evento.setCancelled(true);
 		}
 	}
@@ -123,11 +123,11 @@ public class Utils implements Listener {
 	}
 
 	public static void onDia() {
-		Main.getPlugin().getServer().getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(),
+		PublicPvP.getPlugin().getServer().getScheduler().scheduleSyncRepeatingTask(PublicPvP.getPlugin(),
 				(Runnable) new Runnable() {
 					@Override
 					public void run() {
-						Main.getWorld().setTime(0L);
+						PublicPvP.getWorld().setTime(0L);
 					}
 				}, 0L, 20L);
 	}
@@ -247,7 +247,7 @@ public class Utils implements Listener {
 					|| sign.getLine(0).contains("&l") || sign.getLine(0).contains("&k")
 					|| sign.getLine(0).contains("&n") || sign.getLine(0).contains("&m")
 					|| sign.getLine(0).contains("&r")) {
-				sign.setLine(0, sign.getLine(0).replace("&", "§"));
+				sign.setLine(0, sign.getLine(0).replace("&", "ï¿½"));
 			}
 			if (sign.getLine(1).contains("&1") || sign.getLine(1).contains("&2") || sign.getLine(1).contains("&3")
 					|| sign.getLine(1).contains("&4") || sign.getLine(1).contains("&5")
@@ -260,7 +260,7 @@ public class Utils implements Listener {
 					|| sign.getLine(1).contains("&l") || sign.getLine(1).contains("&k")
 					|| sign.getLine(1).contains("&n") || sign.getLine(1).contains("&m")
 					|| sign.getLine(1).contains("&r")) {
-				sign.setLine(1, sign.getLine(1).replace("&", "§"));
+				sign.setLine(1, sign.getLine(1).replace("&", "ï¿½"));
 			}
 			if (sign.getLine(2).contains("&1") || sign.getLine(2).contains("&2") || sign.getLine(2).contains("&3")
 					|| sign.getLine(2).contains("&4") || sign.getLine(2).contains("&5")
@@ -273,7 +273,7 @@ public class Utils implements Listener {
 					|| sign.getLine(2).contains("&l") || sign.getLine(2).contains("&k")
 					|| sign.getLine(2).contains("&n") || sign.getLine(2).contains("&m")
 					|| sign.getLine(2).contains("&r")) {
-				sign.setLine(2, sign.getLine(2).replace("&", "§"));
+				sign.setLine(2, sign.getLine(2).replace("&", "ï¿½"));
 			}
 			if (sign.getLine(3).contains("&1") || sign.getLine(3).contains("&2") || sign.getLine(3).contains("&3")
 					|| sign.getLine(3).contains("&4") || sign.getLine(3).contains("&5")
@@ -286,7 +286,7 @@ public class Utils implements Listener {
 					|| sign.getLine(3).contains("&l") || sign.getLine(3).contains("&k")
 					|| sign.getLine(3).contains("&n") || sign.getLine(3).contains("&m")
 					|| sign.getLine(3).contains("&r")) {
-				sign.setLine(3, sign.getLine(3).replace("&", "§"));
+				sign.setLine(3, sign.getLine(3).replace("&", "ï¿½"));
 			}
 		}
 	}
@@ -320,7 +320,7 @@ public class Utils implements Listener {
 
 	@EventHandler
 	public void onItemDrop(final ItemSpawnEvent e) {
-		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.getPlugin(), (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				e.getEntity().remove();
@@ -332,7 +332,7 @@ public class Utils implements Listener {
 	@EventHandler
 	public void onPlayerChatRank1(final AsyncPlayerChatEvent e) {
 		final Player p = e.getPlayer();
-		e.setFormat(String.valueOf(p.getDisplayName()) + " §e§l>§e§l> " + ChatColor.GRAY + e.getMessage());
+		e.setFormat(String.valueOf(p.getDisplayName()) + " ï¿½eï¿½l>ï¿½eï¿½l> " + ChatColor.GRAY + e.getMessage());
 	}
 
 	@EventHandler
@@ -352,9 +352,9 @@ public class Utils implements Listener {
 			p.getInventory().setItem(6, cute3);
 			p.setGameMode(GameMode.ADVENTURE);
 			p.sendMessage(
-					" §l§6>> §eParabens Voc\u00ea Concluiu o N\u00edvel Facil do LavaChallenger e Por isso Recebeu §6100 §eCOINS !");
+					" ï¿½lï¿½6>> ï¿½eParabens Voc\u00ea Concluiu o N\u00edvel Facil do LavaChallenger e Por isso Recebeu ï¿½6100 ï¿½eCOINS !");
 			p.teleport(p.getWorld().getSpawnLocation());
-			Main.econ.depositPlayer(p.getName(), 100.0);
+			PublicPvP.econ.depositPlayer(p.getName(), 100.0);
 		}
 	}
 
@@ -375,9 +375,9 @@ public class Utils implements Listener {
 			p.getInventory().setItem(6, cute3);
 			p.teleport(p.getWorld().getSpawnLocation());
 			p.setGameMode(GameMode.ADVENTURE);
-			Main.econ.depositPlayer(p.getName(), 100.0);
+			PublicPvP.econ.depositPlayer(p.getName(), 100.0);
 			p.sendMessage(
-					" §l§6>> §eParabens Voc\u00ea Concluiu o N\u00edvel Medio do LavaChallenger e Por isso Recebeu §6150 §eCOINS !");
+					" ï¿½lï¿½6>> ï¿½eParabens Voc\u00ea Concluiu o N\u00edvel Medio do LavaChallenger e Por isso Recebeu ï¿½6150 ï¿½eCOINS !");
 		}
 	}
 
@@ -398,9 +398,9 @@ public class Utils implements Listener {
 			p.getInventory().setItem(4, cute1);
 			p.getInventory().setItem(6, cute3);
 			p.setGameMode(GameMode.ADVENTURE);
-			Main.econ.depositPlayer(p.getName(), 200.0);
+			PublicPvP.econ.depositPlayer(p.getName(), 200.0);
 			p.sendMessage(
-					" §l§6>> §eParabens Voc\u00ea Concluiu o N\u00edvel Dif\u00edcil do LavaChallenger e Por isso Recebeu §6200 §eCOINS !");
+					" ï¿½lï¿½6>> ï¿½eParabens Voc\u00ea Concluiu o N\u00edvel Dif\u00edcil do LavaChallenger e Por isso Recebeu ï¿½6200 ï¿½eCOINS !");
 		}
 	}
 
@@ -421,22 +421,22 @@ public class Utils implements Listener {
 			p.getInventory().setItem(4, cute1);
 			p.getInventory().setItem(6, cute3);
 			p.setGameMode(GameMode.ADVENTURE);
-			Main.econ.depositPlayer(p.getName(), 300.0);
+			PublicPvP.econ.depositPlayer(p.getName(), 300.0);
 			p.sendMessage(
-					" §l§6>> §eParabens Voc\u00ea Concluiu o N\u00edvel Extreme do LavaChallenger e Por isso Recebeu §6300 §eCOINS + Kit ->");
+					" ï¿½lï¿½6>> ï¿½eParabens Voc\u00ea Concluiu o N\u00edvel Extreme do LavaChallenger e Por isso Recebeu ï¿½6300 ï¿½eCOINS + Kit ->");
 			final Random random = new Random();
 			final int i = random.nextInt(3);
 			if (i == 0) {
-				Main.perm.playerAdd(p, "kitxc.turtle");
-				p.sendMessage("§6Turtle");
+				PublicPvP.perm.playerAdd(p, "kitxc.turtle");
+				p.sendMessage("ï¿½6Turtle");
 			}
 			if (i == 1) {
-				Main.perm.playerAdd(p, "kitxc.ninja");
-				p.sendMessage("§6Ninja");
+				PublicPvP.perm.playerAdd(p, "kitxc.ninja");
+				p.sendMessage("ï¿½6Ninja");
 			}
 			if (i == 2) {
-				Main.perm.playerAdd(p, "kitxc.thor");
-				p.sendMessage("§6Thor");
+				PublicPvP.perm.playerAdd(p, "kitxc.thor");
+				p.sendMessage("ï¿½6Thor");
 			}
 		}
 	}
@@ -465,7 +465,7 @@ public class Utils implements Listener {
 			ball.setYield(ball.getYield() * 1.5f);
 			final ItemStack item2 = new ItemStack(Material.FIREBALL);
 			final ItemMeta itemmeta15 = item2.getItemMeta();
-			itemmeta15.setDisplayName("§c Drag\u00e3o");
+			itemmeta15.setDisplayName("ï¿½c Drag\u00e3o");
 			item2.setItemMeta(itemmeta15);
 			player.getInventory().setItem(1, item2);
 		}
@@ -498,7 +498,7 @@ public class Utils implements Listener {
 			player.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 300, 0));
 			final ItemStack item2 = new ItemStack(Material.FIREBALL);
 			final ItemMeta itemmeta15 = item2.getItemMeta();
-			itemmeta15.setDisplayName("§c Drag\u00e3o");
+			itemmeta15.setDisplayName("ï¿½c Drag\u00e3o");
 			item2.setItemMeta(itemmeta15);
 			player.getInventory().setItem(1, item2);
 		}

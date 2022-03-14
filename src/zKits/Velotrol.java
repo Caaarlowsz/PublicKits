@@ -27,7 +27,7 @@ import org.bukkit.util.Vector;
 
 import me.confuser.barapi.BarAPI;
 import zEvents.Tab;
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Velotrol implements CommandExecutor, Listener {
 	public static ArrayList<Player> Cooldown;
@@ -55,16 +55,16 @@ public class Velotrol implements CommandExecutor, Listener {
 			Arrays.used.add(p.getName());
 			Arrays.urgal.add(p.getName());
 			p.getInventory().clear();
-			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit §6 >> " + ChatColor.GRAY + " Velotrol");
-			Tab.sendTitle(p, "§cVelotrol");
-			BarAPI.setMessage(p, "§7§lSeu Kit §6§l- §f§lVelotrol", 10);
+			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit ï¿½6 >> " + ChatColor.GRAY + " Velotrol");
+			Tab.sendTitle(p, "ï¿½cVelotrol");
+			BarAPI.setMessage(p, "ï¿½7ï¿½lSeu Kit ï¿½6ï¿½l- ï¿½fï¿½lVelotrol", 10);
 			final ItemStack bow = new ItemStack(Material.STONE_SWORD);
 			final ItemMeta bowmeta = bow.getItemMeta();
-			bowmeta.setDisplayName("§9Espada de Pedra");
+			bowmeta.setDisplayName("ï¿½9Espada de Pedra");
 			bow.setItemMeta(bowmeta);
 			final ItemStack Velotrol = new ItemStack(Material.MINECART);
 			final ItemMeta kVelotrol = Velotrol.getItemMeta();
-			kVelotrol.setDisplayName("§aVelotrol");
+			kVelotrol.setDisplayName("ï¿½aVelotrol");
 			Velotrol.setItemMeta(kVelotrol);
 			p.getInventory().setItem(0, bow);
 			p.getInventory().setItem(1, Velotrol);
@@ -78,26 +78,26 @@ public class Velotrol implements CommandExecutor, Listener {
 		final Player p = e.getPlayer();
 		final ItemStack velotrol = new ItemStack(Material.MINECART);
 		final ItemMeta kVelotrol = velotrol.getItemMeta();
-		kVelotrol.setDisplayName("§aVelotrol");
+		kVelotrol.setDisplayName("ï¿½aVelotrol");
 		velotrol.setItemMeta(kVelotrol);
 		if (p.getItemInHand().equals((Object) velotrol)) {
 			if (zKits.Velotrol.Cooldown.contains(p)) {
-				p.sendMessage(String.valueOf(Main.getPlugin().getConfig().getString("server").replace("&", "§"))
-						+ " §l§6>> §eKit em Cooldown!");
+				p.sendMessage(String.valueOf(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+						+ " ï¿½lï¿½6>> ï¿½eKit em Cooldown!");
 				return;
 			}
 			zKits.Velotrol.Cooldown.add(p);
 			final Item VelotrolItem = p.getWorld().dropItemNaturally(p.getLocation(),
 					new ItemStack(Material.SOUL_SAND));
 			VelotrolItem.setMetadata("Velotrol",
-					(MetadataValue) new FixedMetadataValue(Main.getPlugin(), (Object) p.getName()));
+					(MetadataValue) new FixedMetadataValue(PublicPvP.getPlugin(), (Object) p.getName()));
 			final Vector Vector = p.getEyeLocation().getDirection();
 			Vector.multiply(0.8);
 			Vector.setY(0.3);
 			p.setVelocity(Vector);
 			VelotrolItem.setVelocity(Vector);
 			VelotrolItem.setPassenger((Entity) p);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					VelotrolItem.teleport(p.getLocation());
@@ -105,7 +105,7 @@ public class Velotrol implements CommandExecutor, Listener {
 					VelotrolItem.remove();
 				}
 			}, 20L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					Velotrol.this.Bloco.put(p.getName(), p.getLocation());
@@ -122,13 +122,13 @@ public class Velotrol implements CommandExecutor, Listener {
 					p.teleport(Localiza\u00e7\u00e3oz);
 				}
 			}, 30L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
-					VelotrolItem.removeMetadata("Velotrol", Main.getPlugin());
+					VelotrolItem.removeMetadata("Velotrol", PublicPvP.getPlugin());
 				}
 			}, 40L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					final Location Explosao = Velotrol.this.Bloco.get(p.getName());
@@ -141,11 +141,11 @@ public class Velotrol implements CommandExecutor, Listener {
 					Bloco.setType(Material.AIR);
 				}
 			}, 60L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					Velotrol.Cooldown.remove(p);
-					p.sendMessage("§eVoce pode usar novamente!");
+					p.sendMessage("ï¿½eVoce pode usar novamente!");
 					Velotrol.this.Bloco.remove(p.getName());
 				}
 			}, 600L);

@@ -20,14 +20,14 @@ import org.bukkit.inventory.ItemStack;
 
 import me.confuser.barapi.BarAPI;
 import zEvents.Tab;
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Ninja implements Listener, CommandExecutor {
 	public static HashMap<Player, Player> a;
 	public static HashMap<Player, Long> b;
 	public static List<Player> cooldownbk;
-	public static Main plugin;
-	private Main main;
+	public static PublicPvP plugin;
+	private PublicPvP main;
 
 	static {
 		Ninja.a = new HashMap<Player, Player>();
@@ -44,14 +44,14 @@ public class Ninja implements Listener, CommandExecutor {
 		if (label.equalsIgnoreCase("ninja")) {
 			if (!Arrays.used.contains(p.getName())) {
 				if (p.hasPermission("kitxc.ninja")) {
-					p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit §6 >> " + ChatColor.GRAY + " Ninja");
-					Tab.sendTitle(p, "§cNinja");
+					p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit ï¿½6 >> " + ChatColor.GRAY + " Ninja");
+					Tab.sendTitle(p, "ï¿½cNinja");
 					p.playSound(p.getLocation(), Sound.NOTE_PLING, 4.0f, 4.0f);
 					Arrays.used.add(p.getName());
 					Arrays.ninja.add(sender.getName());
 					p.getInventory().clear();
 					p.getInventory().addItem(new ItemStack[] { new ItemStack(Material.STONE_SWORD) });
-					BarAPI.setMessage(p, "§7§lSeu Kit §6§l- §f§lNinja", 10);
+					BarAPI.setMessage(p, "ï¿½7ï¿½lSeu Kit ï¿½6ï¿½l- ï¿½fï¿½lNinja", 10);
 					KitsManager.darSopas(p);
 				} else {
 					p.sendMessage(ChatColor.RED + "Sem permiss\u00e3o");
@@ -99,8 +99,8 @@ public class Ninja implements Listener, CommandExecutor {
 					}
 				} else {
 					localPlayer1.sendMessage(
-							String.valueOf(Main.getPlugin().getConfig().getString("server").replace("&", "§"))
-									+ " §eKit em Cooldown §f> §6" + str + " segundos!");
+							String.valueOf(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+									+ " ï¿½eKit em Cooldown ï¿½f> ï¿½6" + str + " segundos!");
 				}
 			}
 		}

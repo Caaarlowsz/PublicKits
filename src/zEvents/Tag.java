@@ -11,7 +11,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Tag implements CommandExecutor, Listener {
 	public static String normal;
@@ -26,16 +26,16 @@ public class Tag implements CommandExecutor, Listener {
 	public static String msg;
 
 	static {
-		Tag.normal = "§7";
-		Tag.vip = "§a";
-		Tag.mvp = "§9";
-		Tag.pro = "§6";
-		Tag.yt = "§b";
-		Tag.mod = "§5";
-		Tag.modplus = String.valueOf(Tag.mod) + "§o";
-		Tag.admin = "§c";
-		Tag.dono = "§4§o";
-		Tag.msg = "§aVoc\u00ea est\u00e1 usando a tag: %s";
+		Tag.normal = "ï¿½7";
+		Tag.vip = "ï¿½a";
+		Tag.mvp = "ï¿½9";
+		Tag.pro = "ï¿½6";
+		Tag.yt = "ï¿½b";
+		Tag.mod = "ï¿½5";
+		Tag.modplus = String.valueOf(Tag.mod) + "ï¿½o";
+		Tag.admin = "ï¿½c";
+		Tag.dono = "ï¿½4ï¿½o";
+		Tag.msg = "ï¿½aVoc\u00ea est\u00e1 usando a tag: %s";
 	}
 
 	public static String getShortStr(final String name) {
@@ -67,54 +67,54 @@ public class Tag implements CommandExecutor, Listener {
 		if (cmd.getName().equalsIgnoreCase("tag")) {
 			if (args.length > 0 && p.hasPermission("tag.dono")) {
 				if (args[0].toLowerCase().equalsIgnoreCase("normal")) {
-					p.sendMessage(Tag.msg.replace("%s", "§7Normal"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½7Normal"));
 					p.setPlayerListName(
 							String.valueOf(Tag.normal) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.normal) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("lifetime")) {
-					p.sendMessage(Tag.msg.replace("%s", "§6§oLIFEITME"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½6ï¿½oLIFEITME"));
 					p.setPlayerListName(ChatColor.GOLD + ChatColor.ITALIC.toString()
 							+ getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(ChatColor.GOLD + ChatColor.ITALIC.toString()
 							+ ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("pro")) {
-					p.sendMessage(Tag.msg.replace("%s", "§6PRO"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½6PRO"));
 					p.setPlayerListName(
 							String.valueOf(Tag.pro) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.pro) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("modplus")) {
-					p.sendMessage(Tag.msg.replace("%s", "§5§oMOD PLUS"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½5ï¿½oMOD PLUS"));
 					p.setPlayerListName(String.valueOf(Tag.mod) + ChatColor.ITALIC.toString()
 							+ getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.modplus) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("admin")) {
-					p.sendMessage(Tag.msg.replace("%s", "§cADMIN"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½cADMIN"));
 					p.setPlayerListName(
 							String.valueOf(Tag.admin) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.admin) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("youtuber")) {
-					p.sendMessage(Tag.msg.replace("%s", "§bYouTuber"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½bYouTuber"));
 					p.setPlayerListName(String.valueOf(Tag.yt) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.yt) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("mod")) {
-					p.sendMessage(Tag.msg.replace("%s", "§5MOD"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½5MOD"));
 					p.setPlayerListName(
 							String.valueOf(Tag.mod) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.mod) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("adminplus")) {
-					p.sendMessage(Tag.msg.replace("%s", "§c§oADMIN PLUS"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½cï¿½oADMIN PLUS"));
 					p.setPlayerListName(ChatColor.RED + ChatColor.ITALIC.toString()
 							+ getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(ChatColor.RED + ChatColor.ITALIC.toString()
 							+ ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("dono")) {
-					p.sendMessage(Tag.msg.replace("%s", "§4§oDONO"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½4ï¿½oDONO"));
 					p.setPlayerListName(
 							String.valueOf(Tag.dono) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
@@ -125,42 +125,42 @@ public class Tag implements CommandExecutor, Listener {
 				}
 			} else if (args.length > 0 && p.hasPermission("tag.admin")) {
 				if (args[0].toLowerCase().equalsIgnoreCase("normal")) {
-					p.sendMessage(Tag.msg.replace("%s", "§7Normal"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½7Normal"));
 					p.setPlayerListName(
 							String.valueOf(Tag.normal) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.normal) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("lifetime")) {
-					p.sendMessage(Tag.msg.replace("%s", "§6§oLIFEITME"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½6ï¿½oLIFEITME"));
 					p.setPlayerListName(ChatColor.GOLD + ChatColor.ITALIC.toString()
 							+ getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(ChatColor.GOLD + ChatColor.ITALIC.toString()
 							+ ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("pro")) {
-					p.sendMessage(Tag.msg.replace("%s", "§6PRO"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½6PRO"));
 					p.setPlayerListName(
 							String.valueOf(Tag.pro) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.pro) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("modplus")) {
-					p.sendMessage(Tag.msg.replace("%s", "§5§oMOD PLUS"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½5ï¿½oMOD PLUS"));
 					p.setPlayerListName(String.valueOf(Tag.mod) + ChatColor.ITALIC.toString()
 							+ getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.modplus) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("admin")) {
-					p.sendMessage(Tag.msg.replace("%s", "§cADMIN"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½cADMIN"));
 					p.setPlayerListName(
 							String.valueOf(Tag.admin) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.admin) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("youtuber")) {
-					p.sendMessage(Tag.msg.replace("%s", "§bYouTuber"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½bYouTuber"));
 					p.setPlayerListName(String.valueOf(Tag.yt) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.yt) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("mod")) {
-					p.sendMessage(Tag.msg.replace("%s", "§5MOD"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½5MOD"));
 					p.setPlayerListName(
 							String.valueOf(Tag.mod) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
@@ -171,48 +171,48 @@ public class Tag implements CommandExecutor, Listener {
 				}
 			} else if (args.length > 0 && p.hasPermission("tag.adminplus")) {
 				if (args[0].toLowerCase().equalsIgnoreCase("normal")) {
-					p.sendMessage(Tag.msg.replace("%s", "§7Normal"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½7Normal"));
 					p.setPlayerListName(
 							String.valueOf(Tag.normal) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.normal) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("lifetime")) {
-					p.sendMessage(Tag.msg.replace("%s", "§6§oLIFEITME"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½6ï¿½oLIFEITME"));
 					p.setPlayerListName(ChatColor.GOLD + ChatColor.ITALIC.toString()
 							+ getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(ChatColor.GOLD + ChatColor.ITALIC.toString()
 							+ ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("pro")) {
-					p.sendMessage(Tag.msg.replace("%s", "§6PRO"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½6PRO"));
 					p.setPlayerListName(
 							String.valueOf(Tag.pro) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.pro) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("modplus")) {
-					p.sendMessage(Tag.msg.replace("%s", "§5§oMOD PLUS"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½5ï¿½oMOD PLUS"));
 					p.setPlayerListName(String.valueOf(Tag.mod) + ChatColor.ITALIC.toString()
 							+ getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.modplus) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("admin")) {
-					p.sendMessage(Tag.msg.replace("%s", "§cADMIN"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½cADMIN"));
 					p.setPlayerListName(
 							String.valueOf(Tag.admin) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.admin) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("adminplus")) {
-					p.sendMessage(Tag.msg.replace("%s", "§c§oADMINPLUS"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½cï¿½oADMINPLUS"));
 					p.setPlayerListName(ChatColor.RED + ChatColor.ITALIC.toString()
 							+ getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(ChatColor.RED + ChatColor.ITALIC.toString()
 							+ ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("youtuber")) {
-					p.sendMessage(Tag.msg.replace("%s", "§bYouTuber"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½bYouTuber"));
 					p.setPlayerListName(String.valueOf(Tag.yt) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.yt) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("mod")) {
-					p.sendMessage(Tag.msg.replace("%s", "§5MOD"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½5MOD"));
 					p.setPlayerListName(
 							String.valueOf(Tag.mod) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
@@ -223,13 +223,13 @@ public class Tag implements CommandExecutor, Listener {
 				}
 			} else if (args.length > 0 && p.hasPermission("tag.mod")) {
 				if (args[0].toLowerCase().equalsIgnoreCase("normal")) {
-					p.sendMessage(Tag.msg.replace("%s", "§7Normal"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½7Normal"));
 					p.setPlayerListName(
 							String.valueOf(Tag.normal) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.normal) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("lifetime")) {
-					p.sendMessage(Tag.msg.replace("%s", "§6§oLIFEITME"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½6ï¿½oLIFEITME"));
 					p.setPlayerListName(ChatColor.GOLD + ChatColor.ITALIC.toString()
 							+ getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(ChatColor.GOLD + ChatColor.ITALIC.toString()
@@ -241,7 +241,7 @@ public class Tag implements CommandExecutor, Listener {
 					p.setDisplayName(
 							String.valueOf(Tag.pro) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("mod")) {
-					p.sendMessage(Tag.msg.replace("%s", "§5MOD"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½5MOD"));
 					p.setPlayerListName(
 							String.valueOf(Tag.mod) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(String.valueOf(Tag.mod.toString()) + ChatColor.stripColor(p.getDisplayName())
@@ -252,13 +252,13 @@ public class Tag implements CommandExecutor, Listener {
 				}
 			} else if (args.length > 0 && p.hasPermission("tag.modplus")) {
 				if (args[0].toLowerCase().equalsIgnoreCase("normal")) {
-					p.sendMessage(Tag.msg.replace("%s", "§7Normal"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½7Normal"));
 					p.setPlayerListName(
 							String.valueOf(Tag.normal) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.normal) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("lifetime")) {
-					p.sendMessage(Tag.msg.replace("%s", "§6§oLIFEITME"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½6ï¿½oLIFEITME"));
 					p.setPlayerListName(ChatColor.GOLD + ChatColor.ITALIC.toString()
 							+ getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(ChatColor.GOLD + ChatColor.ITALIC.toString()
@@ -270,13 +270,13 @@ public class Tag implements CommandExecutor, Listener {
 					p.setDisplayName(
 							String.valueOf(Tag.pro) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("mod")) {
-					p.sendMessage(Tag.msg.replace("%s", "§5MOD"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½5MOD"));
 					p.setPlayerListName(
 							String.valueOf(Tag.mod) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(String.valueOf(Tag.mod.toString()) + ChatColor.stripColor(p.getDisplayName())
 							+ ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("modplus")) {
-					p.sendMessage(Tag.msg.replace("%s", "§5§oMOD PLUS"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½5ï¿½oMOD PLUS"));
 					p.setPlayerListName(String.valueOf(Tag.mod) + ChatColor.ITALIC.toString()
 							+ getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
@@ -287,25 +287,25 @@ public class Tag implements CommandExecutor, Listener {
 				}
 			} else if (args.length > 0 && p.hasPermission("tag.youtuber")) {
 				if (args[0].toLowerCase().equalsIgnoreCase("normal")) {
-					p.sendMessage(Tag.msg.replace("%s", "§7Normal"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½7Normal"));
 					p.setPlayerListName(
 							String.valueOf(Tag.normal) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.normal) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("pro")) {
-					p.sendMessage(Tag.msg.replace("%s", "§6PRO"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½6PRO"));
 					p.setPlayerListName(
 							String.valueOf(Tag.pro) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.pro) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("lifetime")) {
-					p.sendMessage(Tag.msg.replace("%s", "§6§oLIFEITME"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½6ï¿½oLIFEITME"));
 					p.setPlayerListName(ChatColor.GOLD + ChatColor.ITALIC.toString()
 							+ getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(ChatColor.GOLD + ChatColor.ITALIC.toString()
 							+ ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("youtuber")) {
-					p.sendMessage(Tag.msg.replace("%s", "§bYouTuber"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½bYouTuber"));
 					p.setPlayerListName(String.valueOf(Tag.yt) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.yt) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
@@ -314,19 +314,19 @@ public class Tag implements CommandExecutor, Listener {
 				}
 			} else if (args.length > 0 && p.hasPermission("tag.lifetime")) {
 				if (args[0].toLowerCase().equalsIgnoreCase("normal")) {
-					p.sendMessage(Tag.msg.replace("%s", "§7Normal"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½7Normal"));
 					p.setPlayerListName(
 							String.valueOf(Tag.normal) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.normal) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("pro")) {
-					p.sendMessage(Tag.msg.replace("%s", "§6PRO"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½6PRO"));
 					p.setPlayerListName(
 							String.valueOf(Tag.pro) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
 							String.valueOf(Tag.pro) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
 				} else if (args[0].toLowerCase().equalsIgnoreCase("lifetime")) {
-					p.sendMessage(Tag.msg.replace("%s", "§6§oLIFEITME"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½6ï¿½oLIFEITME"));
 					p.setPlayerListName(ChatColor.GOLD + ChatColor.ITALIC.toString()
 							+ getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(ChatColor.GOLD + ChatColor.ITALIC.toString()
@@ -336,7 +336,7 @@ public class Tag implements CommandExecutor, Listener {
 				}
 			} else if (args.length > 0 && p.hasPermission("tag.pro")) {
 				if (args[0].toLowerCase().equalsIgnoreCase("normal")) {
-					p.sendMessage(Tag.msg.replace("%s", "§7Normal"));
+					p.sendMessage(Tag.msg.replace("%s", "ï¿½7Normal"));
 					p.setPlayerListName(
 							String.valueOf(Tag.normal) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 					p.setDisplayName(
@@ -351,7 +351,7 @@ public class Tag implements CommandExecutor, Listener {
 					p.sendMessage(String.valueOf(Tag.admin) + "Use: (Normal | Pro)");
 				}
 			} else if (args.length > 0 && args[0].toLowerCase().equalsIgnoreCase("normal")) {
-				p.sendMessage(Tag.msg.replace("%s", "§7Normal"));
+				p.sendMessage(Tag.msg.replace("%s", "ï¿½7Normal"));
 				p.setPlayerListName(String.valueOf(Tag.normal) + getShortStr(ChatColor.stripColor(p.getDisplayName())));
 				p.setDisplayName(
 						String.valueOf(Tag.normal) + ChatColor.stripColor(p.getDisplayName()) + ChatColor.RESET);
@@ -388,7 +388,7 @@ public class Tag implements CommandExecutor, Listener {
 	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onPlayerJoin(final PlayerJoinEvent event) {
 		final Player p = event.getPlayer();
-		Bukkit.getScheduler().scheduleAsyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+		Bukkit.getScheduler().scheduleAsyncDelayedTask(PublicPvP.getPlugin(), (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				Tag.setTag(p);

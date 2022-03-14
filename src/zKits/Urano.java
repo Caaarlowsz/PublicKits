@@ -27,7 +27,7 @@ import org.bukkit.potion.PotionEffectType;
 
 import me.confuser.barapi.BarAPI;
 import zEvents.Tab;
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Urano implements Listener, CommandExecutor {
 	public static ArrayList<Player> cooldownm;
@@ -50,17 +50,17 @@ public class Urano implements Listener, CommandExecutor {
 			Arrays.used.add(p.getName());
 			Arrays.urano.add(p.getName());
 			p.getInventory().clear();
-			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit §6 >> " + ChatColor.GRAY + " Urano");
-			BarAPI.setMessage(p, "§7§lSeu Kit §6§l- §f§lUrano", 10);
-			Tab.sendTitle(p, "§cUrano");
+			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit ï¿½6 >> " + ChatColor.GRAY + " Urano");
+			BarAPI.setMessage(p, "ï¿½7ï¿½lSeu Kit ï¿½6ï¿½l- ï¿½fï¿½lUrano", 10);
+			Tab.sendTitle(p, "ï¿½cUrano");
 			final ItemStack bow = new ItemStack(Material.STONE_SWORD);
 			final ItemMeta bowmeta = bow.getItemMeta();
-			bowmeta.setDisplayName("§9Espada de Pedra");
+			bowmeta.setDisplayName("ï¿½9Espada de Pedra");
 			bow.setItemMeta(bowmeta);
 			p.getInventory().setItem(0, bow);
 			final ItemStack b = new ItemStack(Material.SLIME_BALL);
 			final ItemMeta bmeta = b.getItemMeta();
-			bmeta.setDisplayName("§aUrano");
+			bmeta.setDisplayName("ï¿½aUrano");
 			b.setItemMeta(bmeta);
 			p.getInventory().setItem(1, b);
 			KitsManager.darSopas(p);
@@ -78,29 +78,29 @@ public class Urano implements Listener, CommandExecutor {
 				event.setCancelled(true);
 			}
 			if (Urano.cooldownm.contains(p)) {
-				p.sendMessage("§eKit em cooldown acabar!");
+				p.sendMessage("ï¿½eKit em cooldown acabar!");
 				return;
 			}
 			final Location loc = p.getLocation();
 			p.getWorld().playSound(loc, Sound.BAT_HURT, 5.0f, -5.0f);
 			Urano.cooldownm.add(p);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					Arrays.uran.add(p.getName());
 				}
 			}, 0L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					Arrays.uran.remove(p.getName());
 				}
 			}, 100L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					Urano.cooldownm.remove(p);
-					p.sendMessage("§eVoce J\u00e1 pode usar seu Kit!");
+					p.sendMessage("ï¿½eVoce J\u00e1 pode usar seu Kit!");
 					p.getWorld().playSound(p.getLocation(), Sound.BURP, 5.0f, 5.0f);
 				}
 			}, 1000L);
@@ -123,7 +123,7 @@ public class Urano implements Listener, CommandExecutor {
 						.spawnEntity(loc, EntityType.BAT);
 				((LivingEntity) pertos).addPotionEffect(new PotionEffect(PotionEffectType.POISON, 150, 1));
 				BarAPI.setMessage("Voc\u00ea foi atingido por um urano.");
-				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.plugin, (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						BarAPI.removeBar(perto);

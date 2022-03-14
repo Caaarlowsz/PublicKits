@@ -15,7 +15,7 @@ import org.spigotmc.ProtocolInjector;
 
 import net.minecraft.server.v1_7_R4.ChatSerializer;
 import net.minecraft.server.v1_7_R4.Packet;
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Tab implements Listener, CommandExecutor {
 	private static int VERSION;
@@ -27,9 +27,9 @@ public class Tab implements Listener, CommandExecutor {
 	@EventHandler
 	public boolean onPlayerConnect(final PlayerJoinEvent e) {
 		final Player p = e.getPlayer();
-		sendTitle(p, new StringBuilder().append(Main.getPlugin().getConfig().getString("server").replace("&", "§"))
+		sendTitle(p, new StringBuilder().append(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
 				.toString());
-		sendSubTitle(p, "§f§lDivirta-se ");
+		sendSubTitle(p, "ï¿½fï¿½lDivirta-se ");
 		return false;
 	}
 

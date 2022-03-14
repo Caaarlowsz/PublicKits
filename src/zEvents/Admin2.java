@@ -19,7 +19,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Admin2 implements Listener {
 	public static ArrayList<Player> DamageMobs;
@@ -34,14 +34,14 @@ public class Admin2 implements Listener {
 		if ((e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK)
 				&& p.getItemInHand().getType() == Material.EYE_OF_ENDER) {
 			e.setCancelled(true);
-			p.sendMessage("§cTestando...");
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			p.sendMessage("ï¿½cTestando...");
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.setGameMode(GameMode.SURVIVAL);
 				}
 			}, 10L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(PublicPvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.setGameMode(GameMode.CREATIVE);
@@ -66,7 +66,7 @@ public class Admin2 implements Listener {
 		final Player p = e.getPlayer();
 		if (p.getItemInHand().getType() == Material.FEATHER
 				&& (e.getAction() == Action.RIGHT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR)) {
-			final Inventory inv = Bukkit.createInventory((InventoryHolder) p, 54, "§0§nPlayer - Online");
+			final Inventory inv = Bukkit.createInventory((InventoryHolder) p, 54, "ï¿½0ï¿½nPlayer - Online");
 			Player[] onlinePlayers;
 			for (int length = (onlinePlayers = Bukkit.getOnlinePlayers()).length, i = 0; i < length; ++i) {
 				final Player players = onlinePlayers[i];

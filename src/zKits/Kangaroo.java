@@ -22,10 +22,10 @@ import org.bukkit.util.Vector;
 
 import me.confuser.barapi.BarAPI;
 import zEvents.Tab;
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Kangaroo implements CommandExecutor, Listener {
-	public Main plugin;
+	public PublicPvP plugin;
 	ArrayList<String> tempo;
 	ArrayList<String> naofugir;
 
@@ -48,11 +48,11 @@ public class Kangaroo implements CommandExecutor, Listener {
 			Arrays.used.add(p.getName());
 			Arrays.kangaroo.add(p.getName());
 			p.getInventory().clear();
-			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit §6 >> " + ChatColor.GRAY + " Kangaroo");
-			Tab.sendTitle(p, "§cKangaroo");
+			p.sendMessage(ChatColor.WHITE + "Voc\u00ea Escolheu o Kit ï¿½6 >> " + ChatColor.GRAY + " Kangaroo");
+			Tab.sendTitle(p, "ï¿½cKangaroo");
 			p.getInventory().addItem(new ItemStack[] { new ItemStack(Material.STONE_SWORD) });
 			p.getInventory().addItem(new ItemStack[] { new ItemStack(Material.FIREWORK) });
-			BarAPI.setMessage(p, "§7§lSeu Kit §6§l- §f§lKangaroo", 10);
+			BarAPI.setMessage(p, "ï¿½7ï¿½lSeu Kit ï¿½6ï¿½l- ï¿½fï¿½lKangaroo", 10);
 			KitsManager.darSopas(p);
 		}
 		return false;

@@ -17,180 +17,180 @@ import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import zPublic.Main;
+import com.github.caaarlowsz.publicmc.kitpvp.PublicPvP;
 
 public class Loja implements CommandExecutor, Listener {
-	public Loja(final Main main) {
+	public Loja(final PublicPvP main) {
 	}
 
 	public Loja() {
 	}
 
-	public void Loja1(final Main main) {
+	public void Loja1(final PublicPvP main) {
 	}
 
 	@EventHandler
 	public void InventoryClickEvent(final InventoryClickEvent e) {
 		final Player pi = (Player) e.getWhoClicked();
-		if (e.getInventory().getTitle().equals("§e§nLoja de Kits") && e.getCurrentItem() != null
+		if (e.getInventory().getTitle().equals("ï¿½eï¿½nLoja de Kits") && e.getCurrentItem() != null
 				&& e.getCurrentItem().getItemMeta() != null && e.getCurrentItem().getItemMeta().hasDisplayName()) {
 			e.setCancelled(true);
-			if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§eViking")) {
-				if (!Main.perm.has(pi, "kitxc.viking")) {
-					if (Main.econ.has(pi.getName(), 10000.0)) {
-						Main.econ.withdrawPlayer(pi.getName(), 10000.0);
-						Main.perm.playerAdd(pi, "kitxc.viking");
+			if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("ï¿½eViking")) {
+				if (!PublicPvP.perm.has(pi, "kitxc.viking")) {
+					if (PublicPvP.econ.has(pi.getName(), 10000.0)) {
+						PublicPvP.econ.withdrawPlayer(pi.getName(), 10000.0);
+						PublicPvP.perm.playerAdd(pi, "kitxc.viking");
 						pi.sendMessage(
-								String.valueOf(Main.getPlugin().getConfig().getString("server").replace("&", "§"))
-										+ ">> §6Voc\u00ea comprou o kit viking");
+								String.valueOf(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+										+ ">> ï¿½6Voc\u00ea comprou o kit viking");
 						pi.closeInventory();
 					} else {
 						pi.closeInventory();
 						pi.sendMessage(
-								String.valueOf(Main.getPlugin().getConfig().getString("server").replace("&", "§"))
-										+ ">> §cVoc\u00ea n\u00e3o tem Coins suficiente");
+								String.valueOf(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+										+ ">> ï¿½cVoc\u00ea n\u00e3o tem Coins suficiente");
 					}
 				} else {
-					pi.sendMessage("§cVoc\u00ea j\u00e1 tem este kit");
+					pi.sendMessage("ï¿½cVoc\u00ea j\u00e1 tem este kit");
 				}
-			} else if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§eTerrorista")) {
-				if (!Main.perm.has(pi, "kitxc.terrorista")) {
-					if (Main.econ.has(pi.getName(), 10000.0)) {
-						Main.econ.withdrawPlayer(pi.getName(), 10000.0);
-						Main.perm.playerAdd(pi, "kitxc.terrorista");
+			} else if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("ï¿½eTerrorista")) {
+				if (!PublicPvP.perm.has(pi, "kitxc.terrorista")) {
+					if (PublicPvP.econ.has(pi.getName(), 10000.0)) {
+						PublicPvP.econ.withdrawPlayer(pi.getName(), 10000.0);
+						PublicPvP.perm.playerAdd(pi, "kitxc.terrorista");
 						pi.sendMessage(
-								String.valueOf(Main.getPlugin().getConfig().getString("server").replace("&", "§"))
-										+ ">> §6Voc\u00ea comprou o kit IronMan");
+								String.valueOf(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+										+ ">> ï¿½6Voc\u00ea comprou o kit IronMan");
 						pi.closeInventory();
 					} else {
 						pi.closeInventory();
 						pi.sendMessage(
-								String.valueOf(Main.getPlugin().getConfig().getString("server").replace("&", "§"))
-										+ ">> §cVoc\u00ea n\u00e3o tem Coins suficiente");
+								String.valueOf(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+										+ ">> ï¿½cVoc\u00ea n\u00e3o tem Coins suficiente");
 					}
 				} else {
-					pi.sendMessage("§cVoc\u00ea j\u00e1 tem este kit");
+					pi.sendMessage("ï¿½cVoc\u00ea j\u00e1 tem este kit");
 				}
-			} else if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§eDeshFire")) {
-				if (!Main.perm.has(pi, "kitxc.deshfire")) {
-					if (Main.econ.has(pi.getName(), 10000.0)) {
-						Main.econ.withdrawPlayer(pi.getName(), 10000.0);
-						Main.perm.playerAdd(pi, "kitxc.deshfire");
+			} else if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("ï¿½eDeshFire")) {
+				if (!PublicPvP.perm.has(pi, "kitxc.deshfire")) {
+					if (PublicPvP.econ.has(pi.getName(), 10000.0)) {
+						PublicPvP.econ.withdrawPlayer(pi.getName(), 10000.0);
+						PublicPvP.perm.playerAdd(pi, "kitxc.deshfire");
 						pi.sendMessage(
-								String.valueOf(Main.getPlugin().getConfig().getString("server").replace("&", "§"))
-										+ ">> §6Voc\u00ea comprou o kit DeshFire");
+								String.valueOf(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+										+ ">> ï¿½6Voc\u00ea comprou o kit DeshFire");
 						pi.closeInventory();
 					} else {
 						pi.closeInventory();
 						pi.sendMessage(
-								String.valueOf(Main.getPlugin().getConfig().getString("server").replace("&", "§"))
-										+ ">> §cVoc\u00ea n\u00e3o tem Coins suficiente");
+								String.valueOf(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+										+ ">> ï¿½cVoc\u00ea n\u00e3o tem Coins suficiente");
 					}
 				} else {
-					pi.sendMessage("§cVoc\u00ea j\u00e1 tem este kit");
+					pi.sendMessage("ï¿½cVoc\u00ea j\u00e1 tem este kit");
 				}
 			}
 		}
-		if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§eSonic")) {
-			if (!Main.perm.has(pi, "kitxc.sonic")) {
-				if (Main.econ.has(pi.getName(), 10000.0)) {
-					Main.econ.withdrawPlayer(pi.getName(), 10000.0);
-					Main.perm.playerAdd(pi, "kitxc.sonic");
-					pi.sendMessage(String.valueOf(Main.getPlugin().getConfig().getString("server").replace("&", "§"))
-							+ ">> §6Voc\u00ea comprou o kit sonic");
+		if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("ï¿½eSonic")) {
+			if (!PublicPvP.perm.has(pi, "kitxc.sonic")) {
+				if (PublicPvP.econ.has(pi.getName(), 10000.0)) {
+					PublicPvP.econ.withdrawPlayer(pi.getName(), 10000.0);
+					PublicPvP.perm.playerAdd(pi, "kitxc.sonic");
+					pi.sendMessage(String.valueOf(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+							+ ">> ï¿½6Voc\u00ea comprou o kit sonic");
 					pi.closeInventory();
 				} else {
 					pi.closeInventory();
-					pi.sendMessage(String.valueOf(Main.getPlugin().getConfig().getString("server").replace("&", "§"))
-							+ ">> §cVoc\u00ea n\u00e3o tem Coins suficiente");
+					pi.sendMessage(String.valueOf(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+							+ ">> ï¿½cVoc\u00ea n\u00e3o tem Coins suficiente");
 				}
 			} else {
-				pi.sendMessage("§cVoc\u00ea j\u00e1 tem este kit");
+				pi.sendMessage("ï¿½cVoc\u00ea j\u00e1 tem este kit");
 			}
 		}
-		if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§eNinja")) {
-			if (!Main.perm.has(pi, "kitxc.ninja")) {
-				if (Main.econ.has(pi.getName(), 10000.0)) {
-					Main.econ.withdrawPlayer(pi.getName(), 10000.0);
-					Main.perm.playerAdd(pi, "kitxc.ninja");
-					pi.sendMessage(String.valueOf(Main.getPlugin().getConfig().getString("server").replace("&", "§"))
-							+ ">> §6Voc\u00ea comprou o kit ninja");
+		if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("ï¿½eNinja")) {
+			if (!PublicPvP.perm.has(pi, "kitxc.ninja")) {
+				if (PublicPvP.econ.has(pi.getName(), 10000.0)) {
+					PublicPvP.econ.withdrawPlayer(pi.getName(), 10000.0);
+					PublicPvP.perm.playerAdd(pi, "kitxc.ninja");
+					pi.sendMessage(String.valueOf(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+							+ ">> ï¿½6Voc\u00ea comprou o kit ninja");
 					pi.closeInventory();
 				} else {
 					pi.closeInventory();
-					pi.sendMessage(String.valueOf(Main.getPlugin().getConfig().getString("server").replace("&", "§"))
-							+ ">> §cVoc\u00ea n\u00e3o tem Coins suficiente");
+					pi.sendMessage(String.valueOf(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+							+ ">> ï¿½cVoc\u00ea n\u00e3o tem Coins suficiente");
 				}
 			} else {
-				pi.sendMessage("§cVoc\u00ea j\u00e1 tem este kit");
+				pi.sendMessage("ï¿½cVoc\u00ea j\u00e1 tem este kit");
 			}
 		}
-		if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§eWoodMan")) {
-			if (!Main.perm.has(pi, "kitxc.woodman")) {
-				if (Main.econ.has(pi.getName(), 10000.0)) {
-					Main.econ.withdrawPlayer(pi.getName(), 10000.0);
-					Main.perm.playerAdd(pi, "kitxc.sonic");
-					pi.sendMessage(String.valueOf(Main.getPlugin().getConfig().getString("server").replace("&", "§"))
-							+ ">> §6Voc\u00ea comprou o kit woodman");
+		if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("ï¿½eWoodMan")) {
+			if (!PublicPvP.perm.has(pi, "kitxc.woodman")) {
+				if (PublicPvP.econ.has(pi.getName(), 10000.0)) {
+					PublicPvP.econ.withdrawPlayer(pi.getName(), 10000.0);
+					PublicPvP.perm.playerAdd(pi, "kitxc.sonic");
+					pi.sendMessage(String.valueOf(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+							+ ">> ï¿½6Voc\u00ea comprou o kit woodman");
 					pi.closeInventory();
 				} else {
 					pi.closeInventory();
-					pi.sendMessage(String.valueOf(Main.getPlugin().getConfig().getString("server").replace("&", "§"))
-							+ ">> §cVoc\u00ea n\u00e3o tem Coins suficiente");
+					pi.sendMessage(String.valueOf(PublicPvP.getPlugin().getConfig().getString("server").replace("&", "ï¿½"))
+							+ ">> ï¿½cVoc\u00ea n\u00e3o tem Coins suficiente");
 				}
 			} else {
-				pi.sendMessage("§cVoc\u00ea j\u00e1 tem este kit");
+				pi.sendMessage("ï¿½cVoc\u00ea j\u00e1 tem este kit");
 			}
 		}
 	}
 
 	public static void guiMake(final Player p) {
-		final Inventory inv = Bukkit.getServer().createInventory((InventoryHolder) p, 27, "§e§nLoja de Kits");
+		final Inventory inv = Bukkit.getServer().createInventory((InventoryHolder) p, 27, "ï¿½eï¿½nLoja de Kits");
 		final ItemStack milkman = new ItemStack(Material.STONE_AXE);
 		final ItemMeta milkmanmeta = milkman.getItemMeta();
-		milkmanmeta.setDisplayName("§eViking");
+		milkmanmeta.setDisplayName("ï¿½eViking");
 		final List<String> loremilkman = new ArrayList<String>();
-		loremilkman.add("§e10.000 §6Coins");
+		loremilkman.add("ï¿½e10.000 ï¿½6Coins");
 		milkmanmeta.setLore(loremilkman);
 		milkman.setItemMeta(milkmanmeta);
 		final ItemStack sniper = new ItemStack(Material.TNT);
 		final ItemMeta snipermeta = sniper.getItemMeta();
-		snipermeta.setDisplayName("§eTerrorista");
+		snipermeta.setDisplayName("ï¿½eTerrorista");
 		final List<String> loresniper = new ArrayList<String>();
-		loresniper.add("§e10.000 §6Coins");
+		loresniper.add("ï¿½e10.000 ï¿½6Coins");
 		snipermeta.setLore(loresniper);
 		sniper.setItemMeta(snipermeta);
 		final ItemStack flash = new ItemStack(Material.REDSTONE_BLOCK);
 		final ItemMeta flashmeta = flash.getItemMeta();
-		flashmeta.setDisplayName("§eDeshFire");
+		flashmeta.setDisplayName("ï¿½eDeshFire");
 		final List<String> flashlore = new ArrayList<String>();
-		flashlore.add("§e10.000 §6Coins");
+		flashlore.add("ï¿½e10.000 ï¿½6Coins");
 		flashmeta.setLore(flashlore);
 		flash.setItemMeta(flashmeta);
 		final ItemStack gp = new ItemStack(Material.LAPIS_BLOCK);
 		final ItemMeta gpm = gp.getItemMeta();
-		gpm.setDisplayName("§eSonic");
+		gpm.setDisplayName("ï¿½eSonic");
 		final List<String> gpl = new ArrayList<String>();
-		gpl.add("§e10.000 §6Coins");
+		gpl.add("ï¿½e10.000 ï¿½6Coins");
 		gpm.setLore(gpl);
 		gp.setItemMeta(gpm);
 		final ItemStack tr = new ItemStack(Material.COAL_BLOCK);
 		final ItemMeta trm = tr.getItemMeta();
-		trm.setDisplayName("§eNinja");
+		trm.setDisplayName("ï¿½eNinja");
 		final List<String> trl = new ArrayList<String>();
-		trl.add("§e10.000 §6Coins");
+		trl.add("ï¿½e10.000 ï¿½6Coins");
 		trm.setLore(trl);
 		tr.setItemMeta(trm);
 		final ItemStack fujao = new ItemStack(Material.WOOD);
 		final ItemMeta fujaometa = fujao.getItemMeta();
-		fujaometa.setDisplayName("§eWoodMan");
+		fujaometa.setDisplayName("ï¿½eWoodMan");
 		final List<String> fujaolore = new ArrayList<String>();
-		fujaolore.add("§e10.000 §6Coins");
+		fujaolore.add("ï¿½e10.000 ï¿½6Coins");
 		fujaometa.setLore(fujaolore);
 		fujao.setItemMeta(fujaometa);
 		final ItemStack fujao2 = new ItemStack(Material.CHEST);
 		final ItemMeta fujaometa2 = fujao2.getItemMeta();
-		fujaometa2.setDisplayName("§eVolte Para Seus Kits");
+		fujaometa2.setDisplayName("ï¿½eVolte Para Seus Kits");
 		final List<String> fujaolore2 = new ArrayList<String>();
 		fujaometa2.setLore(fujaolore2);
 		fujao2.setItemMeta(fujaometa2);
@@ -204,13 +204,13 @@ public class Loja implements CommandExecutor, Listener {
 		final ItemStack vidro1 = new ItemStack(Material.ENDER_PEARL);
 		vidro1.getDurability();
 		final ItemMeta metav1 = vidro1.getItemMeta();
-		metav1.setDisplayName("§cKits");
+		metav1.setDisplayName("ï¿½cKits");
 		vidro1.setItemMeta(metav1);
 		inv.setItem(4, vidro1);
 		final ItemStack vidro2 = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 14);
 		vidro2.setDurability((short) 14);
 		final ItemMeta metav2 = vidro2.getItemMeta();
-		metav2.setDisplayName("§eLoja");
+		metav2.setDisplayName("ï¿½eLoja");
 		vidro2.setItemMeta(metav2);
 		inv.setItem(0, vidro2);
 		inv.setItem(1, vidro2);
